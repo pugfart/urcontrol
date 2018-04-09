@@ -1,0 +1,9 @@
+E:\control\control\自寫\Control\Control\bin\Debug\Control.exe.config
+E:\control\control\自寫\Control\Control\bin\Debug\Control.exe
+E:\control\control\自寫\Control\Control\bin\Debug\Control.pdb
+E:\control\control\自寫\Control\Control\obj\Debug\Control.csprojResolveAssemblyReference.cache
+E:\control\control\自寫\Control\Control\obj\Debug\Control.Form1.resources
+E:\control\control\自寫\Control\Control\obj\Debug\Control.Properties.Resources.resources
+E:\control\control\自寫\Control\Control\obj\Debug\Control.csproj.GenerateResource.Cache
+E:\control\control\自寫\Control\Control\obj\Debug\Control.exe
+E:\control\control\自寫\Control\Control\obj\Debug\Control.pdb
