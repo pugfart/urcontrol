@@ -16,5 +16,10 @@ namespace Control
         {
             InitializeComponent();
         }
+
+        private void stop_thread_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

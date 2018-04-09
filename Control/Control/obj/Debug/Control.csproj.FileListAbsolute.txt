@@ -7,3 +7,12 @@ E:\control\control\自寫\Control\Control\obj\Debug\Control.Properties.Resources
 E:\control\control\自寫\Control\Control\obj\Debug\Control.csproj.GenerateResource.Cache
 E:\control\control\自寫\Control\Control\obj\Debug\Control.exe
 E:\control\control\自寫\Control\Control\obj\Debug\Control.pdb
+C:\Users\grace.huang\Desktop\自寫\Control\Control\bin\Debug\Control.exe.config
+C:\Users\grace.huang\Desktop\自寫\Control\Control\obj\Debug\Control.exe
+C:\Users\grace.huang\Desktop\自寫\Control\Control\obj\Debug\Control.pdb
+C:\Users\grace.huang\Desktop\自寫\Control\Control\bin\Debug\Control.exe
+C:\Users\grace.huang\Desktop\自寫\Control\Control\bin\Debug\Control.pdb
+C:\Users\grace.huang\Desktop\自寫\Control\Control\obj\Debug\Control.csprojResolveAssemblyReference.cache
+C:\Users\grace.huang\Desktop\自寫\Control\Control\obj\Debug\Control.Form1.resources
+C:\Users\grace.huang\Desktop\自寫\Control\Control\obj\Debug\Control.Properties.Resources.resources
+C:\Users\grace.huang\Desktop\自寫\Control\Control\obj\Debug\Control.csproj.GenerateResource.Cache
