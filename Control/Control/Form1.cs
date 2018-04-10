@@ -16,7 +16,7 @@ namespace Control
         
         URSocketClient getinfo = new URSocketClient();
         URscript sendtask = new URscript();
-             
+        double a, v;//拉條控制加速度和速度
 
         public Form1()
         {
@@ -46,7 +46,8 @@ namespace Control
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            a = 0.3;
+            v = 0.1;
         }
 
 
@@ -61,12 +62,20 @@ namespace Control
 
         private void J1plus_MouseDown(object sender, MouseEventArgs e)
         {
-            
+           // sendtask.movejoint(1, a, v);
         }
 
         private void J1plus_MouseUp(object sender, MouseEventArgs e)
         {
+           // sendtask.stopj(a);
+        }
+
+        private void Speed_Scroll(object sender, EventArgs e)
+        {
+            showspeedpercent.Text = Speed.Value.ToString();
             
+            a = System.Convert.ToDouble(Speed.Value) * 0.033 + 0.27;
+            v = System.Convert.ToDouble(Speed.Value) * 0.011 + 0.088;                     
         }
     }
 }

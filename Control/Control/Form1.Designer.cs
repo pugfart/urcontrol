@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.connect_bt = new System.Windows.Forms.Button();
             this.IPaddress = new System.Windows.Forms.TextBox();
             this.disconnect_bt = new System.Windows.Forms.Button();
@@ -79,7 +79,7 @@
             this.tbJ4 = new System.Windows.Forms.TextBox();
             this.tbJ3 = new System.Windows.Forms.TextBox();
             this.tbJ2 = new System.Windows.Forms.TextBox();
-            this.showjoints = new System.Windows.Forms.Label();
+            this.showjointsdegree = new System.Windows.Forms.Label();
             this.showaxisposition = new System.Windows.Forms.Label();
             this.tbY = new System.Windows.Forms.TextBox();
             this.tbZ = new System.Windows.Forms.TextBox();
@@ -92,13 +92,14 @@
             this.startthread = new System.Windows.Forms.Button();
             this.stopthread = new System.Windows.Forms.Button();
             this.clear = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.showjointsradian = new System.Windows.Forms.Label();
             this.tbJ2Radian = new System.Windows.Forms.TextBox();
             this.tbJ3Radian = new System.Windows.Forms.TextBox();
             this.tbJ4Radian = new System.Windows.Forms.TextBox();
             this.tbJ5Radian = new System.Windows.Forms.TextBox();
             this.tbJ6Radian = new System.Windows.Forms.TextBox();
             this.tbJ1Radian = new System.Windows.Forms.TextBox();
+            this.showspeedpercent = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -377,23 +378,30 @@
             // 
             // Speed
             // 
-            this.Speed.Location = new System.Drawing.Point(397, 466);
+            this.Speed.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Speed.Location = new System.Drawing.Point(393, 482);
+            this.Speed.Minimum = 1;
             this.Speed.Name = "Speed";
             this.Speed.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.Speed.Size = new System.Drawing.Size(56, 275);
+            this.Speed.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Speed.Size = new System.Drawing.Size(56, 259);
             this.Speed.TabIndex = 27;
             this.Speed.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.Speed.Value = 1;
+            this.Speed.Scroll += new System.EventHandler(this.Speed_Scroll);
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Movement,
@@ -575,21 +583,21 @@
             this.tbJ2.Size = new System.Drawing.Size(100, 27);
             this.tbJ2.TabIndex = 36;
             // 
-            // showjoints
+            // showjointsdegree
             // 
-            this.showjoints.AutoSize = true;
-            this.showjoints.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.showjoints.Location = new System.Drawing.Point(601, 466);
-            this.showjoints.Name = "showjoints";
-            this.showjoints.Size = new System.Drawing.Size(78, 22);
-            this.showjoints.TabIndex = 37;
-            this.showjoints.Text = "各軸角度";
+            this.showjointsdegree.AutoSize = true;
+            this.showjointsdegree.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.showjointsdegree.Location = new System.Drawing.Point(601, 466);
+            this.showjointsdegree.Name = "showjointsdegree";
+            this.showjointsdegree.Size = new System.Drawing.Size(78, 22);
+            this.showjointsdegree.TabIndex = 37;
+            this.showjointsdegree.Text = "各軸角度";
             // 
             // showaxisposition
             // 
             this.showaxisposition.AutoSize = true;
             this.showaxisposition.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.showaxisposition.Location = new System.Drawing.Point(720, 466);
+            this.showaxisposition.Location = new System.Drawing.Point(707, 466);
             this.showaxisposition.Name = "showaxisposition";
             this.showaxisposition.Size = new System.Drawing.Size(78, 22);
             this.showaxisposition.TabIndex = 44;
@@ -598,7 +606,7 @@
             // tbY
             // 
             this.tbY.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbY.Location = new System.Drawing.Point(709, 538);
+            this.tbY.Location = new System.Drawing.Point(696, 538);
             this.tbY.Name = "tbY";
             this.tbY.Size = new System.Drawing.Size(100, 27);
             this.tbY.TabIndex = 43;
@@ -606,7 +614,7 @@
             // tbZ
             // 
             this.tbZ.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbZ.Location = new System.Drawing.Point(709, 579);
+            this.tbZ.Location = new System.Drawing.Point(696, 579);
             this.tbZ.Name = "tbZ";
             this.tbZ.Size = new System.Drawing.Size(100, 27);
             this.tbZ.TabIndex = 42;
@@ -614,7 +622,7 @@
             // tbRx
             // 
             this.tbRx.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbRx.Location = new System.Drawing.Point(709, 620);
+            this.tbRx.Location = new System.Drawing.Point(696, 620);
             this.tbRx.Name = "tbRx";
             this.tbRx.Size = new System.Drawing.Size(100, 27);
             this.tbRx.TabIndex = 41;
@@ -622,7 +630,7 @@
             // tbRy
             // 
             this.tbRy.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbRy.Location = new System.Drawing.Point(709, 661);
+            this.tbRy.Location = new System.Drawing.Point(696, 661);
             this.tbRy.Name = "tbRy";
             this.tbRy.Size = new System.Drawing.Size(100, 27);
             this.tbRy.TabIndex = 40;
@@ -630,7 +638,7 @@
             // tbRz
             // 
             this.tbRz.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbRz.Location = new System.Drawing.Point(709, 702);
+            this.tbRz.Location = new System.Drawing.Point(696, 702);
             this.tbRz.Name = "tbRz";
             this.tbRz.Size = new System.Drawing.Size(100, 27);
             this.tbRz.TabIndex = 39;
@@ -638,7 +646,7 @@
             // tbX
             // 
             this.tbX.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbX.Location = new System.Drawing.Point(709, 497);
+            this.tbX.Location = new System.Drawing.Point(696, 497);
             this.tbX.Name = "tbX";
             this.tbX.Size = new System.Drawing.Size(100, 27);
             this.tbX.TabIndex = 38;
@@ -693,20 +701,20 @@
             this.clear.Text = "清空";
             this.clear.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // showjointsradian
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(841, 466);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 22);
-            this.label2.TabIndex = 56;
-            this.label2.Text = "各軸徑度";
+            this.showjointsradian.AutoSize = true;
+            this.showjointsradian.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.showjointsradian.Location = new System.Drawing.Point(813, 466);
+            this.showjointsradian.Name = "showjointsradian";
+            this.showjointsradian.Size = new System.Drawing.Size(78, 22);
+            this.showjointsradian.TabIndex = 56;
+            this.showjointsradian.Text = "各軸徑度";
             // 
             // tbJ2Radian
             // 
             this.tbJ2Radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ2Radian.Location = new System.Drawing.Point(830, 538);
+            this.tbJ2Radian.Location = new System.Drawing.Point(802, 538);
             this.tbJ2Radian.Name = "tbJ2Radian";
             this.tbJ2Radian.Size = new System.Drawing.Size(100, 27);
             this.tbJ2Radian.TabIndex = 55;
@@ -714,7 +722,7 @@
             // tbJ3Radian
             // 
             this.tbJ3Radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ3Radian.Location = new System.Drawing.Point(830, 579);
+            this.tbJ3Radian.Location = new System.Drawing.Point(802, 579);
             this.tbJ3Radian.Name = "tbJ3Radian";
             this.tbJ3Radian.Size = new System.Drawing.Size(100, 27);
             this.tbJ3Radian.TabIndex = 54;
@@ -722,7 +730,7 @@
             // tbJ4Radian
             // 
             this.tbJ4Radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ4Radian.Location = new System.Drawing.Point(830, 620);
+            this.tbJ4Radian.Location = new System.Drawing.Point(802, 620);
             this.tbJ4Radian.Name = "tbJ4Radian";
             this.tbJ4Radian.Size = new System.Drawing.Size(100, 27);
             this.tbJ4Radian.TabIndex = 53;
@@ -730,7 +738,7 @@
             // tbJ5Radian
             // 
             this.tbJ5Radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ5Radian.Location = new System.Drawing.Point(830, 661);
+            this.tbJ5Radian.Location = new System.Drawing.Point(802, 661);
             this.tbJ5Radian.Name = "tbJ5Radian";
             this.tbJ5Radian.Size = new System.Drawing.Size(100, 27);
             this.tbJ5Radian.TabIndex = 52;
@@ -738,7 +746,7 @@
             // tbJ6Radian
             // 
             this.tbJ6Radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ6Radian.Location = new System.Drawing.Point(830, 702);
+            this.tbJ6Radian.Location = new System.Drawing.Point(802, 702);
             this.tbJ6Radian.Name = "tbJ6Radian";
             this.tbJ6Radian.Size = new System.Drawing.Size(100, 27);
             this.tbJ6Radian.TabIndex = 51;
@@ -746,17 +754,29 @@
             // tbJ1Radian
             // 
             this.tbJ1Radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ1Radian.Location = new System.Drawing.Point(830, 497);
+            this.tbJ1Radian.Location = new System.Drawing.Point(802, 497);
             this.tbJ1Radian.Name = "tbJ1Radian";
             this.tbJ1Radian.Size = new System.Drawing.Size(100, 27);
             this.tbJ1Radian.TabIndex = 50;
+            // 
+            // showspeedpercent
+            // 
+            this.showspeedpercent.AutoSize = true;
+            this.showspeedpercent.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.showspeedpercent.Location = new System.Drawing.Point(412, 470);
+            this.showspeedpercent.Name = "showspeedpercent";
+            this.showspeedpercent.Size = new System.Drawing.Size(18, 19);
+            this.showspeedpercent.TabIndex = 57;
+            this.showspeedpercent.Text = "1";
+            this.showspeedpercent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1388, 750);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.showspeedpercent);
+            this.Controls.Add(this.showjointsradian);
             this.Controls.Add(this.tbJ2Radian);
             this.Controls.Add(this.tbJ3Radian);
             this.Controls.Add(this.tbJ4Radian);
@@ -775,7 +795,7 @@
             this.Controls.Add(this.tbRy);
             this.Controls.Add(this.tbRz);
             this.Controls.Add(this.tbX);
-            this.Controls.Add(this.showjoints);
+            this.Controls.Add(this.showjointsdegree);
             this.Controls.Add(this.tbJ2);
             this.Controls.Add(this.tbJ3);
             this.Controls.Add(this.tbJ4);
@@ -861,7 +881,7 @@
         private System.Windows.Forms.TextBox tbJ4;
         private System.Windows.Forms.TextBox tbJ3;
         private System.Windows.Forms.TextBox tbJ2;
-        private System.Windows.Forms.Label showjoints;
+        private System.Windows.Forms.Label showjointsdegree;
         private System.Windows.Forms.Label showaxisposition;
         private System.Windows.Forms.TextBox tbY;
         private System.Windows.Forms.TextBox tbZ;
@@ -887,13 +907,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Rx;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ry;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rz;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label showjointsradian;
         private System.Windows.Forms.TextBox tbJ2Radian;
         private System.Windows.Forms.TextBox tbJ3Radian;
         private System.Windows.Forms.TextBox tbJ4Radian;
         private System.Windows.Forms.TextBox tbJ5Radian;
         private System.Windows.Forms.TextBox tbJ6Radian;
         private System.Windows.Forms.TextBox tbJ1Radian;
+        private System.Windows.Forms.Label showspeedpercent;
     }
 }
 
