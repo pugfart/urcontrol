@@ -8,7 +8,7 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Threading;
 
-namespace URRobot
+namespace Control
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct URRealTimeData
