@@ -13,7 +13,7 @@ namespace Control
         private static byte[] startline;
         private static byte[] endline;
         private byte[] task;
-
+        
         public TcpClient conn = new TcpClient();
         NetworkStream sendtask;
 
@@ -26,7 +26,7 @@ namespace Control
             endline = asc.GetBytes("end \n");//定義結尾
         }
 
-        public void movejoint(int jointnum,double a,double v)
+        public void movejoint(int jointnum,double a,double v,double j1,double j2,double j3,double j4,double j5,double j6)
         {
             try
             {
@@ -36,21 +36,19 @@ namespace Control
             {
                 return;
             }
-            task = asc.GetBytes("movej([-1.6007, -1.7271, -2.203, -0.808, 1.5951, -0.031], a=0.1, v=0.1)\n");//test
-            sendtask.Write(task, 0, task.Length);
-
+            
             switch (jointnum)//選擇軸 1~6  選擇正反 +-
             {
-               // case 1:
-                    /*             task =asc.GetBytes( "movej([6.2831852,"
+              /*  case 1:
+                                 task =asc.GetBytes( "movej([6.2831852,"
                                      + m_dbJ2Radian.ToString() + ","
                                      + m_dbJ3Radian.ToString() + "," 
                                      + m_dbJ4Radian.ToString() + "," 
                                      + m_dbJ5Radian.ToString() + "," 
-                                     + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");*/
+                                     + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
                     
-                   // sendtask.Write(task, 0, task.Length);
-                   // break;
+                    sendtask.Write(task, 0, task.Length);
+                    break;*/
 
                 /*case 2:能接收資料後再加入調整
                      task = asc.GetBytes("movej([6.2831852,"
@@ -100,19 +98,19 @@ namespace Control
                          + m_dbJ5Radian.ToString() + ","
                          + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
                      sendtask.Write(task, 0, task.Length);
-                     break;
+                     break;*/
 
                  case -1:
-                     task = asc.GetBytes("movej([6.2831852,"
-                         + m_dbJ2Radian.ToString() + ","
-                         + m_dbJ3Radian.ToString() + ","
-                         + m_dbJ4Radian.ToString() + ","
-                         + m_dbJ5Radian.ToString() + ","
-                         + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
+                     task = asc.GetBytes("movej([-6.2831852,"
+                         + j2.ToString() + ","
+                         + j3.ToString() + ","
+                         + j4.ToString() + ","
+                         + j5.ToString() + ","
+                         + j6.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
                      sendtask.Write(task, 0, task.Length);
                      break;
 
-                 case -2:
+           /*      case -2:
                      task = asc.GetBytes("movej([6.2831852,"
                          + m_dbJ2Radian.ToString() + ","
                          + m_dbJ3Radian.ToString() + ","
