@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.connect_bt = new System.Windows.Forms.Button();
             this.IPaddress = new System.Windows.Forms.TextBox();
             this.disconnect_bt = new System.Windows.Forms.Button();
@@ -100,6 +100,8 @@
             this.tbJ6Radian = new System.Windows.Forms.TextBox();
             this.tbJ1Radian = new System.Windows.Forms.TextBox();
             this.showspeedpercent = new System.Windows.Forms.Label();
+            this.deleterow = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -134,6 +136,7 @@
             this.disconnect_bt.TabIndex = 2;
             this.disconnect_bt.Text = "Disconnect";
             this.disconnect_bt.UseVisualStyleBackColor = true;
+            this.disconnect_bt.Click += new System.EventHandler(this.disconnect_bt_Click_1);
             // 
             // J1plus
             // 
@@ -144,6 +147,7 @@
             this.J1plus.TabIndex = 3;
             this.J1plus.Text = "J1+";
             this.J1plus.UseVisualStyleBackColor = true;
+            this.J1plus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.J1plus_MouseDown_1);
             this.J1plus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.J1plus_MouseUp);
             // 
             // J1minus
@@ -155,6 +159,8 @@
             this.J1minus.TabIndex = 4;
             this.J1minus.Text = "J1-";
             this.J1minus.UseVisualStyleBackColor = true;
+            this.J1minus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.J1minus_MouseDown);
+            this.J1minus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.J1minus_MouseUp);
             // 
             // J2plus
             // 
@@ -165,6 +171,8 @@
             this.J2plus.TabIndex = 5;
             this.J2plus.Text = "J2+";
             this.J2plus.UseVisualStyleBackColor = true;
+            this.J2plus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.J2plus_MouseDown);
+            this.J2plus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.J2plus_MouseUp);
             // 
             // J2minus
             // 
@@ -175,6 +183,8 @@
             this.J2minus.TabIndex = 6;
             this.J2minus.Text = "J2-";
             this.J2minus.UseVisualStyleBackColor = true;
+            this.J2minus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.J2minus_MouseDown);
+            this.J2minus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.J2minus_MouseUp);
             // 
             // J3plus
             // 
@@ -185,6 +195,8 @@
             this.J3plus.TabIndex = 7;
             this.J3plus.Text = "J3+";
             this.J3plus.UseVisualStyleBackColor = true;
+            this.J3plus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.J3plus_MouseDown);
+            this.J3plus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.J3plus_MouseUp);
             // 
             // J3minus
             // 
@@ -195,6 +207,8 @@
             this.J3minus.TabIndex = 8;
             this.J3minus.Text = "J3-";
             this.J3minus.UseVisualStyleBackColor = true;
+            this.J3minus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.J3minus_MouseDown);
+            this.J3minus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.J3minus_MouseUp);
             // 
             // J4plus
             // 
@@ -205,6 +219,8 @@
             this.J4plus.TabIndex = 9;
             this.J4plus.Text = "J4+";
             this.J4plus.UseVisualStyleBackColor = true;
+            this.J4plus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.J4plus_MouseDown);
+            this.J4plus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.J4plus_MouseUp);
             // 
             // J4minus
             // 
@@ -215,6 +231,8 @@
             this.J4minus.TabIndex = 10;
             this.J4minus.Text = "J4-";
             this.J4minus.UseVisualStyleBackColor = true;
+            this.J4minus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.J4minus_MouseDown);
+            this.J4minus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.J4minus_MouseUp);
             // 
             // J5plus
             // 
@@ -225,6 +243,8 @@
             this.J5plus.TabIndex = 11;
             this.J5plus.Text = "J5+";
             this.J5plus.UseVisualStyleBackColor = true;
+            this.J5plus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.J5plus_MouseDown);
+            this.J5plus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.J5plus_MouseUp);
             // 
             // J5minus
             // 
@@ -235,6 +255,8 @@
             this.J5minus.TabIndex = 12;
             this.J5minus.Text = "J5-";
             this.J5minus.UseVisualStyleBackColor = true;
+            this.J5minus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.J5minus_MouseDown);
+            this.J5minus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.J5minus_MouseUp);
             // 
             // J6plus
             // 
@@ -245,6 +267,8 @@
             this.J6plus.TabIndex = 13;
             this.J6plus.Text = "J6+";
             this.J6plus.UseVisualStyleBackColor = true;
+            this.J6plus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.J6plus_MouseDown);
+            this.J6plus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.J6plus_MouseUp);
             // 
             // J6minus
             // 
@@ -255,6 +279,8 @@
             this.J6minus.TabIndex = 14;
             this.J6minus.Text = "J6-";
             this.J6minus.UseVisualStyleBackColor = true;
+            this.J6minus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.J6minus_MouseDown);
+            this.J6minus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.J6minus_MouseUp);
             // 
             // Xplus
             // 
@@ -394,14 +420,14 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Movement,
@@ -420,7 +446,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(20, 113);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(1348, 337);
+            this.dataGridView1.Size = new System.Drawing.Size(1096, 337);
             this.dataGridView1.TabIndex = 28;
             // 
             // Movement
@@ -538,7 +564,7 @@
             // tbJ1
             // 
             this.tbJ1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ1.Location = new System.Drawing.Point(590, 497);
+            this.tbJ1.Location = new System.Drawing.Point(603, 503);
             this.tbJ1.Name = "tbJ1";
             this.tbJ1.Size = new System.Drawing.Size(100, 27);
             this.tbJ1.TabIndex = 31;
@@ -546,7 +572,7 @@
             // tbJ6
             // 
             this.tbJ6.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ6.Location = new System.Drawing.Point(590, 702);
+            this.tbJ6.Location = new System.Drawing.Point(603, 708);
             this.tbJ6.Name = "tbJ6";
             this.tbJ6.Size = new System.Drawing.Size(100, 27);
             this.tbJ6.TabIndex = 32;
@@ -554,7 +580,7 @@
             // tbJ5
             // 
             this.tbJ5.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ5.Location = new System.Drawing.Point(590, 661);
+            this.tbJ5.Location = new System.Drawing.Point(603, 667);
             this.tbJ5.Name = "tbJ5";
             this.tbJ5.Size = new System.Drawing.Size(100, 27);
             this.tbJ5.TabIndex = 33;
@@ -562,7 +588,7 @@
             // tbJ4
             // 
             this.tbJ4.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ4.Location = new System.Drawing.Point(590, 620);
+            this.tbJ4.Location = new System.Drawing.Point(603, 626);
             this.tbJ4.Name = "tbJ4";
             this.tbJ4.Size = new System.Drawing.Size(100, 27);
             this.tbJ4.TabIndex = 34;
@@ -570,7 +596,7 @@
             // tbJ3
             // 
             this.tbJ3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ3.Location = new System.Drawing.Point(590, 579);
+            this.tbJ3.Location = new System.Drawing.Point(603, 585);
             this.tbJ3.Name = "tbJ3";
             this.tbJ3.Size = new System.Drawing.Size(100, 27);
             this.tbJ3.TabIndex = 35;
@@ -578,7 +604,7 @@
             // tbJ2
             // 
             this.tbJ2.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ2.Location = new System.Drawing.Point(590, 538);
+            this.tbJ2.Location = new System.Drawing.Point(603, 544);
             this.tbJ2.Name = "tbJ2";
             this.tbJ2.Size = new System.Drawing.Size(100, 27);
             this.tbJ2.TabIndex = 36;
@@ -587,7 +613,7 @@
             // 
             this.showjointsdegree.AutoSize = true;
             this.showjointsdegree.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.showjointsdegree.Location = new System.Drawing.Point(601, 466);
+            this.showjointsdegree.Location = new System.Drawing.Point(614, 472);
             this.showjointsdegree.Name = "showjointsdegree";
             this.showjointsdegree.Size = new System.Drawing.Size(78, 22);
             this.showjointsdegree.TabIndex = 37;
@@ -597,7 +623,7 @@
             // 
             this.showaxisposition.AutoSize = true;
             this.showaxisposition.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.showaxisposition.Location = new System.Drawing.Point(707, 466);
+            this.showaxisposition.Location = new System.Drawing.Point(720, 472);
             this.showaxisposition.Name = "showaxisposition";
             this.showaxisposition.Size = new System.Drawing.Size(78, 22);
             this.showaxisposition.TabIndex = 44;
@@ -606,7 +632,7 @@
             // tbY
             // 
             this.tbY.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbY.Location = new System.Drawing.Point(696, 538);
+            this.tbY.Location = new System.Drawing.Point(709, 544);
             this.tbY.Name = "tbY";
             this.tbY.Size = new System.Drawing.Size(100, 27);
             this.tbY.TabIndex = 43;
@@ -614,7 +640,7 @@
             // tbZ
             // 
             this.tbZ.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbZ.Location = new System.Drawing.Point(696, 579);
+            this.tbZ.Location = new System.Drawing.Point(709, 585);
             this.tbZ.Name = "tbZ";
             this.tbZ.Size = new System.Drawing.Size(100, 27);
             this.tbZ.TabIndex = 42;
@@ -622,7 +648,7 @@
             // tbRx
             // 
             this.tbRx.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbRx.Location = new System.Drawing.Point(696, 620);
+            this.tbRx.Location = new System.Drawing.Point(709, 626);
             this.tbRx.Name = "tbRx";
             this.tbRx.Size = new System.Drawing.Size(100, 27);
             this.tbRx.TabIndex = 41;
@@ -630,7 +656,7 @@
             // tbRy
             // 
             this.tbRy.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbRy.Location = new System.Drawing.Point(696, 661);
+            this.tbRy.Location = new System.Drawing.Point(709, 667);
             this.tbRy.Name = "tbRy";
             this.tbRy.Size = new System.Drawing.Size(100, 27);
             this.tbRy.TabIndex = 40;
@@ -638,7 +664,7 @@
             // tbRz
             // 
             this.tbRz.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbRz.Location = new System.Drawing.Point(696, 702);
+            this.tbRz.Location = new System.Drawing.Point(709, 708);
             this.tbRz.Name = "tbRz";
             this.tbRz.Size = new System.Drawing.Size(100, 27);
             this.tbRz.TabIndex = 39;
@@ -646,27 +672,27 @@
             // tbX
             // 
             this.tbX.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbX.Location = new System.Drawing.Point(696, 497);
+            this.tbX.Location = new System.Drawing.Point(709, 503);
             this.tbX.Name = "tbX";
             this.tbX.Size = new System.Drawing.Size(100, 27);
             this.tbX.TabIndex = 38;
             // 
             // MoveJ
             // 
-            this.MoveJ.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.MoveJ.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.MoveJ.Location = new System.Drawing.Point(481, 466);
             this.MoveJ.Name = "MoveJ";
-            this.MoveJ.Size = new System.Drawing.Size(75, 35);
+            this.MoveJ.Size = new System.Drawing.Size(85, 35);
             this.MoveJ.TabIndex = 45;
             this.MoveJ.Text = "MoveJ";
             this.MoveJ.UseVisualStyleBackColor = true;
             // 
             // MoveL
             // 
-            this.MoveL.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.MoveL.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.MoveL.Location = new System.Drawing.Point(481, 514);
             this.MoveL.Name = "MoveL";
-            this.MoveL.Size = new System.Drawing.Size(75, 35);
+            this.MoveL.Size = new System.Drawing.Size(85, 35);
             this.MoveL.TabIndex = 46;
             this.MoveL.Text = "MoveL";
             this.MoveL.UseVisualStyleBackColor = true;
@@ -674,7 +700,7 @@
             // startthread
             // 
             this.startthread.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.startthread.Location = new System.Drawing.Point(996, 58);
+            this.startthread.Location = new System.Drawing.Point(618, 58);
             this.startthread.Name = "startthread";
             this.startthread.Size = new System.Drawing.Size(120, 40);
             this.startthread.TabIndex = 47;
@@ -684,7 +710,7 @@
             // stopthread
             // 
             this.stopthread.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.stopthread.Location = new System.Drawing.Point(1122, 59);
+            this.stopthread.Location = new System.Drawing.Point(744, 58);
             this.stopthread.Name = "stopthread";
             this.stopthread.Size = new System.Drawing.Size(120, 40);
             this.stopthread.TabIndex = 48;
@@ -694,18 +720,18 @@
             // clear
             // 
             this.clear.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.clear.Location = new System.Drawing.Point(1248, 59);
+            this.clear.Location = new System.Drawing.Point(870, 58);
             this.clear.Name = "clear";
             this.clear.Size = new System.Drawing.Size(120, 40);
             this.clear.TabIndex = 49;
-            this.clear.Text = "清空";
+            this.clear.Text = "清空列表";
             this.clear.UseVisualStyleBackColor = true;
             // 
             // showjointsradian
             // 
             this.showjointsradian.AutoSize = true;
             this.showjointsradian.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.showjointsradian.Location = new System.Drawing.Point(813, 466);
+            this.showjointsradian.Location = new System.Drawing.Point(826, 472);
             this.showjointsradian.Name = "showjointsradian";
             this.showjointsradian.Size = new System.Drawing.Size(78, 22);
             this.showjointsradian.TabIndex = 56;
@@ -714,7 +740,7 @@
             // tbJ2Radian
             // 
             this.tbJ2Radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ2Radian.Location = new System.Drawing.Point(802, 538);
+            this.tbJ2Radian.Location = new System.Drawing.Point(815, 544);
             this.tbJ2Radian.Name = "tbJ2Radian";
             this.tbJ2Radian.Size = new System.Drawing.Size(100, 27);
             this.tbJ2Radian.TabIndex = 55;
@@ -722,7 +748,7 @@
             // tbJ3Radian
             // 
             this.tbJ3Radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ3Radian.Location = new System.Drawing.Point(802, 579);
+            this.tbJ3Radian.Location = new System.Drawing.Point(815, 585);
             this.tbJ3Radian.Name = "tbJ3Radian";
             this.tbJ3Radian.Size = new System.Drawing.Size(100, 27);
             this.tbJ3Radian.TabIndex = 54;
@@ -730,7 +756,7 @@
             // tbJ4Radian
             // 
             this.tbJ4Radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ4Radian.Location = new System.Drawing.Point(802, 620);
+            this.tbJ4Radian.Location = new System.Drawing.Point(815, 626);
             this.tbJ4Radian.Name = "tbJ4Radian";
             this.tbJ4Radian.Size = new System.Drawing.Size(100, 27);
             this.tbJ4Radian.TabIndex = 53;
@@ -738,7 +764,7 @@
             // tbJ5Radian
             // 
             this.tbJ5Radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ5Radian.Location = new System.Drawing.Point(802, 661);
+            this.tbJ5Radian.Location = new System.Drawing.Point(815, 667);
             this.tbJ5Radian.Name = "tbJ5Radian";
             this.tbJ5Radian.Size = new System.Drawing.Size(100, 27);
             this.tbJ5Radian.TabIndex = 52;
@@ -746,7 +772,7 @@
             // tbJ6Radian
             // 
             this.tbJ6Radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ6Radian.Location = new System.Drawing.Point(802, 702);
+            this.tbJ6Radian.Location = new System.Drawing.Point(815, 708);
             this.tbJ6Radian.Name = "tbJ6Radian";
             this.tbJ6Radian.Size = new System.Drawing.Size(100, 27);
             this.tbJ6Radian.TabIndex = 51;
@@ -754,7 +780,7 @@
             // tbJ1Radian
             // 
             this.tbJ1Radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbJ1Radian.Location = new System.Drawing.Point(802, 497);
+            this.tbJ1Radian.Location = new System.Drawing.Point(815, 503);
             this.tbJ1Radian.Name = "tbJ1Radian";
             this.tbJ1Radian.Size = new System.Drawing.Size(100, 27);
             this.tbJ1Radian.TabIndex = 50;
@@ -770,11 +796,32 @@
             this.showspeedpercent.Text = "1";
             this.showspeedpercent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // deleterow
+            // 
+            this.deleterow.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.deleterow.Location = new System.Drawing.Point(996, 58);
+            this.deleterow.Name = "deleterow";
+            this.deleterow.Size = new System.Drawing.Size(120, 40);
+            this.deleterow.TabIndex = 58;
+            this.deleterow.Text = "刪除列表";
+            this.deleterow.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(481, 581);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 15);
+            this.label1.TabIndex = 59;
+            this.label1.Text = "scolltest";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1388, 750);
+            this.ClientSize = new System.Drawing.Size(1136, 750);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.deleterow);
             this.Controls.Add(this.showspeedpercent);
             this.Controls.Add(this.showjointsradian);
             this.Controls.Add(this.tbJ2Radian);
@@ -835,6 +882,7 @@
             this.Controls.Add(this.connect_bt);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -915,6 +963,8 @@
         private System.Windows.Forms.TextBox tbJ6Radian;
         private System.Windows.Forms.TextBox tbJ1Radian;
         private System.Windows.Forms.Label showspeedpercent;
+        private System.Windows.Forms.Button deleterow;
+        private System.Windows.Forms.Label label1;
     }
 }
 

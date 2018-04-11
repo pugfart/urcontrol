@@ -31,3 +31,9 @@ E:\urcontrol\Control\Control\obj\Debug\Control.csprojResolveAssemblyReference.ca
 E:\urcontrol\Control\Control\obj\Debug\Control.Form1.resources
 E:\urcontrol\Control\Control\obj\Debug\Control.Properties.Resources.resources
 E:\urcontrol\Control\Control\obj\Debug\Control.csproj.GenerateResource.Cache
+C:\Users\grace.huang\Desktop\好自寫\Control\Control\bin\Debug\Control.exe
+C:\Users\grace.huang\Desktop\好自寫\Control\Control\bin\Debug\Control.pdb
+C:\Users\grace.huang\Desktop\好自寫\Control\Control\obj\Debug\Control.csprojResolveAssemblyReference.cache
+C:\Users\grace.huang\Desktop\好自寫\Control\Control\obj\Debug\Control.Form1.resources
+C:\Users\grace.huang\Desktop\好自寫\Control\Control\obj\Debug\Control.Properties.Resources.resources
+C:\Users\grace.huang\Desktop\好自寫\Control\Control\obj\Debug\Control.csproj.GenerateResource.Cache
