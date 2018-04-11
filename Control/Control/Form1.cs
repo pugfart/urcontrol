@@ -26,6 +26,7 @@ namespace Control
             InitializeComponent();
             a = 0.3;
             v = 0.1;
+            label1.Text = a.ToString() + "\n" + v.ToString();
         }
 
         private void stop_thread_Click(object sender, EventArgs e)

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.connect_bt = new System.Windows.Forms.Button();
             this.IPaddress = new System.Windows.Forms.TextBox();
             this.disconnect_bt = new System.Windows.Forms.Button();
@@ -446,14 +446,14 @@
             // 
             // movementdata
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.movementdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.movementdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.movementdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.movementdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Movement,
@@ -604,7 +604,7 @@
             // 
             this.showaxisposition.AutoSize = true;
             this.showaxisposition.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.showaxisposition.Location = new System.Drawing.Point(722, 468);
+            this.showaxisposition.Location = new System.Drawing.Point(719, 468);
             this.showaxisposition.Name = "showaxisposition";
             this.showaxisposition.Size = new System.Drawing.Size(78, 22);
             this.showaxisposition.TabIndex = 44;
@@ -671,7 +671,7 @@
             // 
             this.showjointsradian.AutoSize = true;
             this.showjointsradian.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.showjointsradian.Location = new System.Drawing.Point(830, 468);
+            this.showjointsradian.Location = new System.Drawing.Point(824, 468);
             this.showjointsradian.Name = "showjointsradian";
             this.showjointsradian.Size = new System.Drawing.Size(78, 22);
             this.showjointsradian.TabIndex = 56;
@@ -770,7 +770,7 @@
             this.tcprz.BackColor = System.Drawing.Color.White;
             this.tcprz.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tcprz.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tcprz.Location = new System.Drawing.Point(724, 706);
+            this.tcprz.Location = new System.Drawing.Point(721, 706);
             this.tcprz.Name = "tcprz";
             this.tcprz.Size = new System.Drawing.Size(75, 30);
             this.tcprz.TabIndex = 71;
@@ -781,7 +781,7 @@
             this.tcpry.BackColor = System.Drawing.Color.White;
             this.tcpry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tcpry.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tcpry.Location = new System.Drawing.Point(724, 665);
+            this.tcpry.Location = new System.Drawing.Point(721, 665);
             this.tcpry.Name = "tcpry";
             this.tcpry.Size = new System.Drawing.Size(75, 30);
             this.tcpry.TabIndex = 70;
@@ -792,7 +792,7 @@
             this.tcprx.BackColor = System.Drawing.Color.White;
             this.tcprx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tcprx.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tcprx.Location = new System.Drawing.Point(724, 624);
+            this.tcprx.Location = new System.Drawing.Point(721, 624);
             this.tcprx.Name = "tcprx";
             this.tcprx.Size = new System.Drawing.Size(75, 30);
             this.tcprx.TabIndex = 69;
@@ -803,7 +803,7 @@
             this.tcpz.BackColor = System.Drawing.Color.White;
             this.tcpz.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tcpz.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tcpz.Location = new System.Drawing.Point(724, 583);
+            this.tcpz.Location = new System.Drawing.Point(721, 583);
             this.tcpz.Name = "tcpz";
             this.tcpz.Size = new System.Drawing.Size(75, 30);
             this.tcpz.TabIndex = 68;
@@ -814,7 +814,7 @@
             this.tcpy.BackColor = System.Drawing.Color.White;
             this.tcpy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tcpy.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tcpy.Location = new System.Drawing.Point(724, 542);
+            this.tcpy.Location = new System.Drawing.Point(721, 542);
             this.tcpy.Name = "tcpy";
             this.tcpy.Size = new System.Drawing.Size(75, 30);
             this.tcpy.TabIndex = 67;
@@ -825,7 +825,7 @@
             this.tcpx.BackColor = System.Drawing.Color.White;
             this.tcpx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tcpx.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tcpx.Location = new System.Drawing.Point(724, 501);
+            this.tcpx.Location = new System.Drawing.Point(721, 501);
             this.tcpx.Name = "tcpx";
             this.tcpx.Size = new System.Drawing.Size(75, 30);
             this.tcpx.TabIndex = 66;
@@ -836,7 +836,7 @@
             this.j6radian.BackColor = System.Drawing.Color.White;
             this.j6radian.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.j6radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.j6radian.Location = new System.Drawing.Point(832, 706);
+            this.j6radian.Location = new System.Drawing.Point(827, 706);
             this.j6radian.Name = "j6radian";
             this.j6radian.Size = new System.Drawing.Size(75, 30);
             this.j6radian.TabIndex = 77;
@@ -847,7 +847,7 @@
             this.j5radian.BackColor = System.Drawing.Color.White;
             this.j5radian.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.j5radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.j5radian.Location = new System.Drawing.Point(832, 665);
+            this.j5radian.Location = new System.Drawing.Point(827, 665);
             this.j5radian.Name = "j5radian";
             this.j5radian.Size = new System.Drawing.Size(75, 30);
             this.j5radian.TabIndex = 76;
@@ -858,7 +858,7 @@
             this.j4radian.BackColor = System.Drawing.Color.White;
             this.j4radian.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.j4radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.j4radian.Location = new System.Drawing.Point(832, 624);
+            this.j4radian.Location = new System.Drawing.Point(827, 624);
             this.j4radian.Name = "j4radian";
             this.j4radian.Size = new System.Drawing.Size(75, 30);
             this.j4radian.TabIndex = 75;
@@ -869,7 +869,7 @@
             this.j3radian.BackColor = System.Drawing.Color.White;
             this.j3radian.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.j3radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.j3radian.Location = new System.Drawing.Point(832, 583);
+            this.j3radian.Location = new System.Drawing.Point(827, 583);
             this.j3radian.Name = "j3radian";
             this.j3radian.Size = new System.Drawing.Size(75, 30);
             this.j3radian.TabIndex = 74;
@@ -880,7 +880,7 @@
             this.j2radian.BackColor = System.Drawing.Color.White;
             this.j2radian.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.j2radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.j2radian.Location = new System.Drawing.Point(832, 542);
+            this.j2radian.Location = new System.Drawing.Point(827, 542);
             this.j2radian.Name = "j2radian";
             this.j2radian.Size = new System.Drawing.Size(75, 30);
             this.j2radian.TabIndex = 73;
@@ -891,7 +891,7 @@
             this.j1radian.BackColor = System.Drawing.Color.White;
             this.j1radian.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.j1radian.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.j1radian.Location = new System.Drawing.Point(832, 501);
+            this.j1radian.Location = new System.Drawing.Point(827, 501);
             this.j1radian.Name = "j1radian";
             this.j1radian.Size = new System.Drawing.Size(75, 30);
             this.j1radian.TabIndex = 78;
