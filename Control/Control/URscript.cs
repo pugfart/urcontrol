@@ -26,7 +26,7 @@ namespace Control
             endline = asc.GetBytes("end \n");//定義結尾
         }
 
-        public void movejoint(int jointnum,double a,double v,double j1,double j2,double j3,double j4,double j5,double j6)
+        public void movejoint(int jointnum,double a,double v,double j1,double j2,double j3,double j4,double j5,double j6)//movej
         {
             try
             {
@@ -39,66 +39,54 @@ namespace Control
             
             switch (jointnum)//選擇軸 1~6  選擇正反 +-
             {
-              /*  case 1:
-                                 task =asc.GetBytes( "movej([6.2831852,"
-                                     + m_dbJ2Radian.ToString() + ","
-                                     + m_dbJ3Radian.ToString() + "," 
-                                     + m_dbJ4Radian.ToString() + "," 
-                                     + m_dbJ5Radian.ToString() + "," 
-                                     + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
-                    
-                    sendtask.Write(task, 0, task.Length);
-                    break;*/
+                case 1:
+                    task =asc.GetBytes( "movej([6.2831852,"
+                       + j2.ToString() + ","
+                       + j3.ToString() + "," 
+                       + j4.ToString() + "," 
+                       + j5.ToString() + "," 
+                       + j6.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");                    
+                    break;
 
-                /*case 2:能接收資料後再加入調整
-                     task = asc.GetBytes("movej([6.2831852,"
-                        + m_dbJ2Radian.ToString() + ","
-                        + m_dbJ3Radian.ToString() + ","
-                        + m_dbJ4Radian.ToString() + ","
-                        + m_dbJ5Radian.ToString() + ","
-                        + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
-                     sendtask.Write(task, 0, task.Length);
+                case 2:
+                     task = asc.GetBytes("movej(["+j1.ToString()+",6.28,"
+                        + j3.ToString() + ","
+                        + j4.ToString() + ","
+                        + j5.ToString() + ","
+                        + j6.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");                     
                      break;
 
                  case 3:
-                     task = asc.GetBytes("movej([6.2831852,"
-                         + m_dbJ2Radian.ToString() + ","
-                         + m_dbJ3Radian.ToString() + ","
-                         + m_dbJ4Radian.ToString() + ","
-                         + m_dbJ5Radian.ToString() + ","
-                         + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
-                     sendtask.Write(task, 0, task.Length);
+                    task = asc.GetBytes("movej([" + j1.ToString() + ","
+                       + j2.ToString() + ",6.28,"
+                       + j4.ToString() + ","
+                       + j5.ToString() + ","
+                       + j6.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");                   
                      break;
 
                  case 4:
-                     task = asc.GetBytes("movej([6.2831852,"
-                         + m_dbJ2Radian.ToString() + ","
-                         + m_dbJ3Radian.ToString() + ","
-                         + m_dbJ4Radian.ToString() + ","
-                         + m_dbJ5Radian.ToString() + ","
-                         + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
-                     sendtask.Write(task, 0, task.Length);
+                    task = asc.GetBytes("movej([" + j1.ToString() + ","
+                       + j2.ToString() + ","
+                       + j3.ToString() + ",6.28,"
+                       + j5.ToString() + ","
+                       + j6.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");                    
                      break;
 
                  case 5:
-                     task = asc.GetBytes("movej([6.2831852,"
-                         + m_dbJ2Radian.ToString() + ","
-                         + m_dbJ3Radian.ToString() + ","
-                         + m_dbJ4Radian.ToString() + ","
-                         + m_dbJ5Radian.ToString() + ","
-                         + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
-                     sendtask.Write(task, 0, task.Length);
+                    task = asc.GetBytes("movej([" + j1.ToString() + ","
+                       + j2.ToString() + ","
+                       + j3.ToString() + ","
+                       + j4.ToString() + ",6.28,"
+                       + j6.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");                    
                      break;
 
                  case 6:
-                     task = asc.GetBytes("movej([6.2831852,"
-                         + m_dbJ2Radian.ToString() + ","
-                         + m_dbJ3Radian.ToString() + ","
-                         + m_dbJ4Radian.ToString() + ","
-                         + m_dbJ5Radian.ToString() + ","
-                         + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
-                     sendtask.Write(task, 0, task.Length);
-                     break;*/
+                    task = asc.GetBytes("movej([" + j1.ToString() + ","
+                       + j2.ToString() + ","
+                       + j3.ToString() + ","
+                       + j4.ToString() + ","
+                       + j5.ToString() + ",6.28], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");                   
+                     break;
 
                  case -1:
                      task = asc.GetBytes("movej([-6.2831852,"
@@ -106,64 +94,54 @@ namespace Control
                          + j3.ToString() + ","
                          + j4.ToString() + ","
                          + j5.ToString() + ","
-                         + j6.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
-                     sendtask.Write(task, 0, task.Length);
+                         + j6.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");                     
                      break;
 
-           /*      case -2:
-                     task = asc.GetBytes("movej([6.2831852,"
-                         + m_dbJ2Radian.ToString() + ","
-                         + m_dbJ3Radian.ToString() + ","
-                         + m_dbJ4Radian.ToString() + ","
-                         + m_dbJ5Radian.ToString() + ","
-                         + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
-                     sendtask.Write(task, 0, task.Length);
+                 case -2:
+                    task = asc.GetBytes("movej([" + j1.ToString() + ",-6.28,"
+                       + j3.ToString() + ","
+                       + j4.ToString() + ","
+                       + j5.ToString() + ","
+                       + j6.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");                    
                      break;
 
                  case -3:
-                     task = asc.GetBytes("movej([6.2831852,"
-                         + m_dbJ2Radian.ToString() + ","
-                         + m_dbJ3Radian.ToString() + ","
-                         + m_dbJ4Radian.ToString() + ","
-                         + m_dbJ5Radian.ToString() + ","
-                         + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
-                     sendtask.Write(task, 0, task.Length);
+                    task = asc.GetBytes("movej([" + j1.ToString() + ","
+                       + j2.ToString() + ",-6.28,"
+                       + j4.ToString() + ","
+                       + j5.ToString() + ","
+                       + j6.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");                    
                      break;
 
                  case -4:
-                     task = asc.GetBytes("movej([6.2831852,"
-                         + m_dbJ2Radian.ToString() + ","
-                         + m_dbJ3Radian.ToString() + ","
-                         + m_dbJ4Radian.ToString() + ","
-                         + m_dbJ5Radian.ToString() + ","
-                         + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
-                     sendtask.Write(task, 0, task.Length);
+                    task = asc.GetBytes("movej([" + j1.ToString() + ","
+                       + j2.ToString() + ","
+                       + j3.ToString() + ",-6.28,"
+                       + j5.ToString() + ","
+                       + j6.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");                    
                      break;
 
                  case -5:
-                     task = asc.GetBytes("movej([6.2831852,"
-                         + m_dbJ2Radian.ToString() + ","
-                         + m_dbJ3Radian.ToString() + ","
-                         + m_dbJ4Radian.ToString() + ","
-                         + m_dbJ5Radian.ToString() + ","
-                         + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
-                     sendtask.Write(task, 0, task.Length);
+                    task = asc.GetBytes("movej([" + j1.ToString() + ","
+                       + j2.ToString() + ","
+                       + j3.ToString() + ","
+                       + j4.ToString() + ",-6.28,"
+                       + j6.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");                    
                      break;
 
                  case -6:
-                     task = asc.GetBytes("movej([6.2831852,"
-                         + m_dbJ2Radian.ToString() + ","
-                         + m_dbJ3Radian.ToString() + ","
-                         + m_dbJ4Radian.ToString() + ","
-                         + m_dbJ5Radian.ToString() + ","
-                         + m_dbJ6Radian.ToString() + "], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");
-                     sendtask.Write(task, 0, task.Length);
+                    task = asc.GetBytes("movej([" + j1.ToString() + ","
+                       + j2.ToString() + ","
+                       + j3.ToString() + ","
+                       + j4.ToString() + ","
+                       + j5.ToString() + ",-6.28], a=" + a.ToString() + ", v=" + v.ToString() + ")\n");                    
                      break;
-*/
+
                 default:
                     break;
             }
 
+            sendtask.Write(task, 0, task.Length);
             sendtask.Write(endline, 0, endline.Length);
         }
 
@@ -175,6 +153,140 @@ namespace Control
             }
             catch { return; }
             task = asc.GetBytes("stopj(" + a.ToString() + ")\n");//movej停止 減速同速度條
+            sendtask.Write(task, 0, task.Length);
+
+            sendtask.Write(endline, 0, endline.Length);
+        }
+
+        public void movel(int direction, double a, double v, double X_axis, double Y_axis, double Z_axis, double Rx, double Ry, double Rz)//movel
+        {
+            try
+            {
+                sendtask.Write(startline, 0, startline.Length);
+            }
+            catch
+            {
+                return;
+            }
+
+            switch(direction)//1->x 2->y 3->z 4->rx 5->ry 6->rz   方向選擇+-
+            {
+                case 1:
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000 + 0.1).ToString() 
+                    + "," + (Y_axis / 1000).ToString()
+                    + "," + (Z_axis / 1000).ToString()
+                    + "," + Rx.ToString() + ","
+                    + Ry.ToString() + ","
+                    + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
+                    break;
+                case 2:
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()
+                    + "," + (Y_axis / 1000+0.1).ToString()
+                    + "," + (Z_axis / 1000).ToString()
+                    + "," + Rx.ToString() + ","
+                    + Ry.ToString() + ","
+                    + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
+                    break;
+                case 3:
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()
+                    + "," + (Y_axis / 1000).ToString()
+                    + "," + (Z_axis / 1000+0.1).ToString()
+                    + "," + Rx.ToString() + ","
+                    + Ry.ToString() + ","
+                    + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
+                    break;
+                case 4:
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()
+                    + "," + (Y_axis / 1000).ToString()
+                    + "," + (Z_axis / 1000).ToString()
+                    + "," + (Rx+1).ToString() + ","
+                    + Ry.ToString() + ","
+                    + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
+                    break;
+                case 5:
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()
+                    + "," + (Y_axis / 1000).ToString()
+                    + "," + (Z_axis / 1000).ToString()
+                    + "," + Rx.ToString() + "," 
+                    + (Ry+1).ToString() + ","
+                    + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
+                    break;
+                case 6:
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()
+                    + "," + (Y_axis / 1000).ToString()
+                    + "," + (Z_axis / 1000).ToString()
+                    + "," + Rx.ToString() 
+                    + "," + Ry.ToString() 
+                    + "," + (Rz+1).ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
+                    break;
+                case -1:
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000-0.1).ToString()
+                    + "," + (Y_axis / 1000).ToString()
+                    + "," + (Z_axis / 1000).ToString()
+                    + "," + Rx.ToString() + ","
+                    + Ry.ToString() + ","
+                    + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
+                    break;
+                case -2:
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()
+                    + "," + (Y_axis / 1000-0.1).ToString()
+                    + "," + (Z_axis / 1000).ToString()
+                    + "," + Rx.ToString() + ","
+                    + Ry.ToString() + ","
+                    + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
+                    break;
+                case -3:
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()
+                    + "," + (Y_axis / 1000).ToString()
+                    + "," + (Z_axis / 1000-0.1).ToString()
+                    + "," + Rx.ToString() + ","
+                    + Ry.ToString() + ","
+                    + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
+                    break;
+                case -4:
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()
+                    + "," + (Y_axis / 1000).ToString()
+                    + "," + (Z_axis / 1000).ToString()
+                    + "," + (Rx-1).ToString() 
+                    + "," + Ry.ToString() 
+                    + "," + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
+                    break;
+                case -5:
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()
+                    + "," + (Y_axis / 1000).ToString()
+                    + "," + (Z_axis / 1000).ToString()
+                    + "," + Rx.ToString() 
+                    + "," + (Ry-1).ToString() 
+                    + "," + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
+                    break;
+                case -6:
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()
+                    + "," + (Y_axis / 1000).ToString()
+                    + "," + (Z_axis / 1000).ToString()
+                    + "," + Rx.ToString() 
+                    + "," + Ry.ToString() 
+                    + "," + (Rz-1).ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
+                    break;
+                default:
+                    break;
+            }
+
+            sendtask.Write(task, 0, task.Length);
+            sendtask.Write(endline, 0, endline.Length);
+        }
+
+        public void stopl(double a)
+        {
+            try
+            {
+                sendtask.Write(startline, 0, startline.Length);
+            }
+            catch
+            {
+                return;
+            }
+
+            task = asc.GetBytes("stopl(a="+(a*2).ToString()+")\n");
             sendtask.Write(task, 0, task.Length);
 
             sendtask.Write(endline, 0, endline.Length);

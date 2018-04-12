@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             this.connect_bt = new System.Windows.Forms.Button();
             this.IPaddress = new System.Windows.Forms.TextBox();
             this.disconnect_bt = new System.Windows.Forms.Button();
@@ -58,19 +58,6 @@
             this.RZminus = new System.Windows.Forms.Button();
             this.Speed = new System.Windows.Forms.TrackBar();
             this.movementdata = new System.Windows.Forms.DataGridView();
-            this.Movement = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.J1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.J2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.J3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.J4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.J5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.J6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rx = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ry = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.start_thread = new System.Windows.Forms.Button();
             this.stop_thread = new System.Windows.Forms.Button();
             this.showjointsdegree = new System.Windows.Forms.Label();
@@ -102,6 +89,21 @@
             this.j2radian = new System.Windows.Forms.Label();
             this.j1radian = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Movement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.J1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.J2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.J3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.J4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.J5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.J6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.X = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Y = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rx = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.加速度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.速度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movementdata)).BeginInit();
             this.SuspendLayout();
@@ -125,7 +127,7 @@
             this.IPaddress.Name = "IPaddress";
             this.IPaddress.Size = new System.Drawing.Size(120, 27);
             this.IPaddress.TabIndex = 1;
-            this.IPaddress.Text = "輸入手臂IP位址";
+            this.IPaddress.Text = "192.168.1.101";
             this.IPaddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.IPaddress.MouseClick += new System.Windows.Forms.MouseEventHandler(this.IPaddress_MouseClick);
             this.IPaddress.TextChanged += new System.EventHandler(this.IPaddress_TextChanged);
@@ -308,6 +310,8 @@
             this.Xplus.TabIndex = 15;
             this.Xplus.Text = "X+";
             this.Xplus.UseVisualStyleBackColor = true;
+            this.Xplus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Xplus_MouseDown);
+            this.Xplus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Xplus_MouseUp);
             // 
             // Xminus
             // 
@@ -319,6 +323,8 @@
             this.Xminus.TabIndex = 16;
             this.Xminus.Text = "X-";
             this.Xminus.UseVisualStyleBackColor = true;
+            this.Xminus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Xminus_MouseDown);
+            this.Xminus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Xminus_MouseUp);
             // 
             // Yplus
             // 
@@ -330,6 +336,8 @@
             this.Yplus.TabIndex = 17;
             this.Yplus.Text = "Y+";
             this.Yplus.UseVisualStyleBackColor = true;
+            this.Yplus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Yplus_MouseDown);
+            this.Yplus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Yplus_MouseUp);
             // 
             // Yminus
             // 
@@ -341,6 +349,8 @@
             this.Yminus.TabIndex = 18;
             this.Yminus.Text = "Y-";
             this.Yminus.UseVisualStyleBackColor = true;
+            this.Yminus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Yminus_MouseDown);
+            this.Yminus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Yminus_MouseUp);
             // 
             // Zplus
             // 
@@ -352,6 +362,8 @@
             this.Zplus.TabIndex = 19;
             this.Zplus.Text = "Z+";
             this.Zplus.UseVisualStyleBackColor = true;
+            this.Zplus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Zplus_MouseDown);
+            this.Zplus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Zplus_MouseUp);
             // 
             // Zminus
             // 
@@ -363,6 +375,8 @@
             this.Zminus.TabIndex = 20;
             this.Zminus.Text = "Z-";
             this.Zminus.UseVisualStyleBackColor = true;
+            this.Zminus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Zminus_MouseDown);
+            this.Zminus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Zminus_MouseUp);
             // 
             // RXplus
             // 
@@ -374,6 +388,8 @@
             this.RXplus.TabIndex = 21;
             this.RXplus.Text = "Rx+";
             this.RXplus.UseVisualStyleBackColor = true;
+            this.RXplus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RXplus_MouseDown);
+            this.RXplus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RXplus_MouseUp);
             // 
             // RXminus
             // 
@@ -385,6 +401,8 @@
             this.RXminus.TabIndex = 22;
             this.RXminus.Text = "Rx-";
             this.RXminus.UseVisualStyleBackColor = true;
+            this.RXminus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RXminus_MouseDown);
+            this.RXminus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RXminus_MouseUp);
             // 
             // RYplus
             // 
@@ -396,6 +414,8 @@
             this.RYplus.TabIndex = 23;
             this.RYplus.Text = "Ry+";
             this.RYplus.UseVisualStyleBackColor = true;
+            this.RYplus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RYplus_MouseDown);
+            this.RYplus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RYplus_MouseUp);
             // 
             // RYminus
             // 
@@ -407,6 +427,8 @@
             this.RYminus.TabIndex = 24;
             this.RYminus.Text = "Ry-";
             this.RYminus.UseVisualStyleBackColor = true;
+            this.RYminus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RYminus_MouseDown);
+            this.RYminus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RYminus_MouseUp);
             // 
             // RZplus
             // 
@@ -418,6 +440,8 @@
             this.RZplus.TabIndex = 25;
             this.RZplus.Text = "Rz+";
             this.RZplus.UseVisualStyleBackColor = true;
+            this.RZplus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RZplus_MouseDown);
+            this.RZplus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RZplus_MouseUp);
             // 
             // RZminus
             // 
@@ -429,6 +453,8 @@
             this.RZminus.TabIndex = 26;
             this.RZminus.Text = "Rz-";
             this.RZminus.UseVisualStyleBackColor = true;
+            this.RZminus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RZminus_MouseDown);
+            this.RZminus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RZminus_MouseUp);
             // 
             // Speed
             // 
@@ -446,14 +472,14 @@
             // 
             // movementdata
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.movementdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.movementdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.movementdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.movementdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Movement,
@@ -468,103 +494,14 @@
             this.Z,
             this.Rx,
             this.Ry,
-            this.Rz});
+            this.Rz,
+            this.加速度,
+            this.速度});
             this.movementdata.Location = new System.Drawing.Point(20, 113);
             this.movementdata.Name = "movementdata";
             this.movementdata.RowTemplate.Height = 27;
             this.movementdata.Size = new System.Drawing.Size(1096, 337);
             this.movementdata.TabIndex = 28;
-            // 
-            // Movement
-            // 
-            this.Movement.HeaderText = "Movement";
-            this.Movement.Name = "Movement";
-            this.Movement.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Movement.Width = 80;
-            // 
-            // J1
-            // 
-            this.J1.HeaderText = "J1";
-            this.J1.Name = "J1";
-            this.J1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.J1.Width = 80;
-            // 
-            // J2
-            // 
-            this.J2.HeaderText = "J2";
-            this.J2.Name = "J2";
-            this.J2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.J2.Width = 80;
-            // 
-            // J3
-            // 
-            this.J3.HeaderText = "J3";
-            this.J3.Name = "J3";
-            this.J3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.J3.Width = 80;
-            // 
-            // J4
-            // 
-            this.J4.HeaderText = "J4";
-            this.J4.Name = "J4";
-            this.J4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.J4.Width = 80;
-            // 
-            // J5
-            // 
-            this.J5.HeaderText = "J5";
-            this.J5.Name = "J5";
-            this.J5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.J5.Width = 80;
-            // 
-            // J6
-            // 
-            this.J6.HeaderText = "J6";
-            this.J6.Name = "J6";
-            this.J6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.J6.Width = 80;
-            // 
-            // X
-            // 
-            this.X.HeaderText = "X";
-            this.X.Name = "X";
-            this.X.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.X.Width = 80;
-            // 
-            // Y
-            // 
-            this.Y.HeaderText = "Y";
-            this.Y.Name = "Y";
-            this.Y.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Y.Width = 80;
-            // 
-            // Z
-            // 
-            this.Z.HeaderText = "Z";
-            this.Z.Name = "Z";
-            this.Z.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Z.Width = 80;
-            // 
-            // Rx
-            // 
-            this.Rx.HeaderText = "Rx";
-            this.Rx.Name = "Rx";
-            this.Rx.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Rx.Width = 80;
-            // 
-            // Ry
-            // 
-            this.Ry.HeaderText = "Ry";
-            this.Ry.Name = "Ry";
-            this.Ry.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Ry.Width = 80;
-            // 
-            // Rz
-            // 
-            this.Rz.HeaderText = "Rz";
-            this.Rz.Name = "Rz";
-            this.Rz.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Rz.Width = 80;
             // 
             // start_thread
             // 
@@ -666,6 +603,7 @@
             this.clear.TabIndex = 49;
             this.clear.Text = "清空列表";
             this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
             // 
             // showjointsradian
             // 
@@ -698,6 +636,7 @@
             this.deleterow.TabIndex = 58;
             this.deleterow.Text = "刪除列表";
             this.deleterow.UseVisualStyleBackColor = true;
+            this.deleterow.Click += new System.EventHandler(this.deleterow_Click);
             // 
             // j1degree
             // 
@@ -906,6 +845,109 @@
             this.label1.TabIndex = 79;
             this.label1.Text = "label1";
             // 
+            // Movement
+            // 
+            this.Movement.HeaderText = "Movement";
+            this.Movement.Name = "Movement";
+            this.Movement.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Movement.Width = 80;
+            // 
+            // J1
+            // 
+            this.J1.HeaderText = "J1";
+            this.J1.Name = "J1";
+            this.J1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.J1.Width = 80;
+            // 
+            // J2
+            // 
+            this.J2.HeaderText = "J2";
+            this.J2.Name = "J2";
+            this.J2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.J2.Width = 80;
+            // 
+            // J3
+            // 
+            this.J3.HeaderText = "J3";
+            this.J3.Name = "J3";
+            this.J3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.J3.Width = 80;
+            // 
+            // J4
+            // 
+            this.J4.HeaderText = "J4";
+            this.J4.Name = "J4";
+            this.J4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.J4.Width = 80;
+            // 
+            // J5
+            // 
+            this.J5.HeaderText = "J5";
+            this.J5.Name = "J5";
+            this.J5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.J5.Width = 80;
+            // 
+            // J6
+            // 
+            this.J6.HeaderText = "J6";
+            this.J6.Name = "J6";
+            this.J6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.J6.Width = 80;
+            // 
+            // X
+            // 
+            this.X.HeaderText = "X";
+            this.X.Name = "X";
+            this.X.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.X.Width = 80;
+            // 
+            // Y
+            // 
+            this.Y.HeaderText = "Y";
+            this.Y.Name = "Y";
+            this.Y.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Y.Width = 80;
+            // 
+            // Z
+            // 
+            this.Z.HeaderText = "Z";
+            this.Z.Name = "Z";
+            this.Z.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Z.Width = 80;
+            // 
+            // Rx
+            // 
+            this.Rx.HeaderText = "Rx";
+            this.Rx.Name = "Rx";
+            this.Rx.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Rx.Width = 80;
+            // 
+            // Ry
+            // 
+            this.Ry.HeaderText = "Ry";
+            this.Ry.Name = "Ry";
+            this.Ry.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Ry.Width = 80;
+            // 
+            // Rz
+            // 
+            this.Rz.HeaderText = "Rz";
+            this.Rz.Name = "Rz";
+            this.Rz.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Rz.Width = 80;
+            // 
+            // 加速度
+            // 
+            this.加速度.HeaderText = "加速度";
+            this.加速度.Name = "加速度";
+            this.加速度.Width = 80;
+            // 
+            // 速度
+            // 
+            this.速度.HeaderText = "速度";
+            this.速度.Name = "速度";
+            this.速度.Width = 80;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -1021,19 +1063,6 @@
         private System.Windows.Forms.Button startthread;
         private System.Windows.Forms.Button stopthread;
         private System.Windows.Forms.Button clear;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Movement;
-        private System.Windows.Forms.DataGridViewTextBoxColumn J1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn J2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn J3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn J4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn J5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn J6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn X;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Y;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Z;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rx;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ry;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rz;
         private System.Windows.Forms.Label showjointsradian;
         private System.Windows.Forms.Label showspeedpercent;
         private System.Windows.Forms.Button deleterow;
@@ -1056,6 +1085,21 @@
         private System.Windows.Forms.Label j2radian;
         private System.Windows.Forms.Label j1radian;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Movement;
+        private System.Windows.Forms.DataGridViewTextBoxColumn J1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn J2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn J3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn J4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn J5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn J6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn X;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Y;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Z;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rx;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ry;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 加速度;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 速度;
     }
 }
 
