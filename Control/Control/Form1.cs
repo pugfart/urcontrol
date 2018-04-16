@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Sockets;
 using System.Threading;
+using System.IO;
 
 namespace Control
 {
@@ -21,7 +22,8 @@ namespace Control
         double[] jointpositiondegree, jointpositionradian, tcpposition;
         double a, v;//拉條控制加速度和速度
         Thread info;
-        
+        FileInfo f = new FileInfo("C:\\task_script.txt");//一串工作順序
+
         public Form1()
         {
             InitializeComponent();
@@ -77,7 +79,7 @@ namespace Control
             {
                 sendtask.conn.Close();
                 getinfo.DisconnectRobot();
-                MessageBox.Show("已離線");
+                MessageBox.Show("已中斷連線");
             }
             else
                 MessageBox.Show("請先連線才能中斷連線");
@@ -378,6 +380,202 @@ namespace Control
             movementdata.Rows.Clear();//表格清空
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (do0.Checked == true)            
+                sendtask.digital_output(0, true);           
+            else            
+                sendtask.digital_output(0, false);            
+        }
+
+        private void startthread_Click(object sender, EventArgs e)
+        {
+            StreamWriter write = f.CreateText();
+            int i;
+            for (i = 0; i <= movementdata.RowCount - 1; i++)
+            {
+                char m = 'a';
+                string move;
+                move = movementdata.Rows[i].Cells[0].FormattedValue.ToString();
+                if (move == "movej") m = 'j';
+                else if (move == "movel") m = 'l';
+                else if (move == "DO") m = 'd';
+
+                double j1 = Convert.ToDouble(movementdata.Rows[i].Cells[1].Value),//表格各軸單位轉換 度轉徑
+                    j2 = Convert.ToDouble(movementdata.Rows[i].Cells[2].Value),
+                    j3 = Convert.ToDouble(movementdata.Rows[i].Cells[3].Value),
+                    j4 = Convert.ToDouble(movementdata.Rows[i].Cells[4].Value),
+                    j5 = Convert.ToDouble(movementdata.Rows[i].Cells[5].Value),
+                    j6 = Convert.ToDouble(movementdata.Rows[i].Cells[6].Value);
+                int _do0=0,_do1=0,_do2=0,_do3=0,_do4=0,_do5=0,_do6=0,_do7=0,do_all=0;
+                
+                if(movementdata.Rows[i].Cells[15].Value!=null)//如果不是DO動作就不執行
+                do_all = Convert.ToInt32(movementdata.Rows[i].Cells[15].Value);
+                if (do_all != 0)//解讀各DO狀態
+                {
+                    _do7 = do_all % 10;
+                    do_all /= 10;
+                    if (do_all != 0)
+                    {
+                        _do6 = do_all % 10;
+                        do_all /= 10;
+                        if (do_all != 0)
+                        {
+                            _do5 = do_all % 10;
+                            do_all /= 10;
+                            if (do_all != 0)
+                            {
+                                _do4 = do_all % 10;
+                                do_all /= 10;
+                                if (do_all != 0)
+                                {
+                                    _do3 = do_all % 10;
+                                    do_all /= 10;
+                                    if (do_all != 0)
+                                    {
+                                        _do2 = do_all % 10;
+                                        do_all /= 10;
+                                        if (do_all != 0)
+                                        {
+                                            _do1 = do_all % 10;
+                                            do_all /= 10;
+                                            if (do_all != 0)
+                                            {
+                                                _do0 = do_all % 10;
+                                                do_all /= 10;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                switch (m)
+                {
+                    case 'j'://movej寫入
+                        write.Write("movej([" + j1.ToString() + "," +
+                            j2.ToString() + "," +
+                            j3.ToString() + "," +
+                            j4.ToString() + "," +
+                            j5.ToString() + "," +
+                            j6.ToString() + "],a=" +
+                            a.ToString() + ",v=" +
+                            v.ToString() + ")\r\n");
+                        break;
+                    case 'l'://movel寫入
+                        write.Write("movel([" + j1.ToString() + "," +
+                            j2.ToString() + "," +
+                            j3.ToString() + "," +
+                            j4.ToString() + "," +
+                            j5.ToString() + "," +
+                            j6.ToString() + "],a=" +
+                            (2*a).ToString() + ",v=" +
+                            (v/2).ToString() + ")\r\n");
+                        break;
+                    case 'd'://每次都會寫入每個DO的指令                        
+                        write.Write("set_standard_digital_out(0,"+Convert.ToBoolean(_do0).ToString()+")\r\n"+
+                            "set_standard_digital_out(1," + Convert.ToBoolean(_do1).ToString() + ")\r\n"+
+                            "set_standard_digital_out(2," + Convert.ToBoolean(_do2).ToString() + ")\r\n" +
+                            "set_standard_digital_out(3," + Convert.ToBoolean(_do3).ToString() + ")\r\n" +
+                            "set_standard_digital_out(4," + Convert.ToBoolean(_do4).ToString() + ")\r\n" +
+                            "set_standard_digital_out(5," + Convert.ToBoolean(_do5).ToString() + ")\r\n" +
+                            "set_standard_digital_out(6," + Convert.ToBoolean(_do6).ToString() + ")\r\n" +
+                            "set_standard_digital_out(7," + Convert.ToBoolean(_do7).ToString() + ")\r\n" );
+                        break;
+                    default:
+                        break;
+                }
+            }
+            write.Close();//寫入結束
+
+            sendtask.do_work(f);
+        }
+
+        private void stopthread_Click(object sender, EventArgs e)
+        {
+            sendtask.stopj(a);
+        }
+
+        private void do1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (do1.Checked == true)            
+                sendtask.digital_output(1, true);            
+            else            
+                sendtask.digital_output(1, false);           
+        }
+
+        private void do2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (do2.Checked == true)
+                sendtask.digital_output(2, true);
+            else
+                sendtask.digital_output(2, false);
+        }
+
+        private void do3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (do3.Checked == true)
+                sendtask.digital_output(3, true);
+            else
+                sendtask.digital_output(3, false);
+        }
+
+        private void do4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (do4.Checked == true)
+                sendtask.digital_output(4, true);
+            else
+                sendtask.digital_output(4, false);
+        }
+
+        private void do5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (do5.Checked == true)
+                sendtask.digital_output(5, true);
+            else
+                sendtask.digital_output(5, false);
+        }
+
+        private void do6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (do6.Checked == true)
+                sendtask.digital_output(6, true);
+            else
+                sendtask.digital_output(6, false);
+        }
+
+        private void do7_CheckedChanged(object sender, EventArgs e)
+        {
+            if (do7.Checked == true)
+                sendtask.digital_output(7, true);
+            else
+                sendtask.digital_output(7, false);
+        }
+
+        private void writeDIO_Click(object sender, EventArgs e)
+        {
+            int dioinfo=0;//紀錄目前DO狀況 以數字方式記錄 並組合成1個數字寫入
+            if (do0.Checked) dioinfo = 1;
+            if (do1.Checked) dioinfo = dioinfo * 10 + 1;
+            else dioinfo *= 10;
+            if (do2.Checked) dioinfo = dioinfo * 10 + 1;
+            else dioinfo *= 10;
+            if (do3.Checked) dioinfo = dioinfo * 10 + 1;
+            else dioinfo *= 10;
+            if (do4.Checked) dioinfo = dioinfo * 10 + 1;
+            else dioinfo *= 10;
+            if (do5.Checked) dioinfo = dioinfo * 10 + 1;
+            else dioinfo *= 10;
+            if (do6.Checked) dioinfo = dioinfo * 10 + 1;
+            else dioinfo *= 10;
+            if (do7.Checked) dioinfo = dioinfo * 10 + 1;
+            else dioinfo *= 10;
+            DataGridViewRowCollection movedata = movementdata.Rows;
+            movementdata.Rows.Add(new object[] { "DO","0","0","0","0","0","0","0","0","0","0","0","0","0","0",dioinfo.ToString()});//資料填入表單                
+        }
+
         private void IPaddress_MouseClick(object sender, MouseEventArgs e)
         {
             IPaddress.Text = "";//點IP格會自動清除
@@ -396,8 +594,8 @@ namespace Control
                while (thread)
                {                
                    jointpositiondegree[0] = getinfo.m_jointDegreeInfo.dbBasePosDegree;//取得各軸角度
-                   jointpositiondegree[1] = getinfo.m_jointDegreeInfo.dbElbowPosDegree;
-                   jointpositiondegree[2] = getinfo.m_jointDegreeInfo.dbShoulderPosDegree;
+                   jointpositiondegree[1] = getinfo.m_jointDegreeInfo.dbShoulderPosDegree;
+                   jointpositiondegree[2] = getinfo.m_jointDegreeInfo.dbElbowPosDegree;
                    jointpositiondegree[3] = getinfo.m_jointDegreeInfo.dbWrist1PosDegree;
                    jointpositiondegree[4] = getinfo.m_jointDegreeInfo.dbWrist2PosDegree;
                    jointpositiondegree[5] = getinfo.m_jointDegreeInfo.dbWrist3PosDegree;

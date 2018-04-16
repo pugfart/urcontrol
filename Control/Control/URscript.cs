@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
+using System.IO;
 
 namespace Control
 {
@@ -288,6 +289,38 @@ namespace Control
 
             task = asc.GetBytes("stopl(a="+(a*2).ToString()+")\n");
             sendtask.Write(task, 0, task.Length);
+
+            sendtask.Write(endline, 0, endline.Length);
+        }
+
+        public void digital_output(int point,bool act)//dio控制
+        {
+            try
+            {
+                sendtask.Write(startline, 0, startline.Length);
+            }
+            catch
+            {
+                return;
+            }
+
+            task = asc.GetBytes("set_standard_digital_out("+point.ToString()+","+act.ToString()+")\n");
+            sendtask.Write(task, 0, task.Length);
+
+            sendtask.Write(endline, 0, endline.Length);
+        }
+
+        public void do_work(FileInfo f)//讀檔執行
+        {
+            StreamReader read = f.OpenText();//讀檔執行
+            string readline;
+            sendtask.Write(startline, 0, startline.Length);
+
+            while ((readline = read.ReadLine()) != null)//送各行動作
+            {
+                task = asc.GetBytes(readline + "\n");
+                sendtask.Write(task, 0, task.Length);
+            }
 
             sendtask.Write(endline, 0, endline.Length);
         }

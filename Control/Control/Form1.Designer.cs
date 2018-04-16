@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.connect_bt = new System.Windows.Forms.Button();
             this.IPaddress = new System.Windows.Forms.TextBox();
             this.disconnect_bt = new System.Windows.Forms.Button();
@@ -88,7 +88,15 @@
             this.j3radian = new System.Windows.Forms.Label();
             this.j2radian = new System.Windows.Forms.Label();
             this.j1radian = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.do0 = new System.Windows.Forms.CheckBox();
+            this.do1 = new System.Windows.Forms.CheckBox();
+            this.do2 = new System.Windows.Forms.CheckBox();
+            this.do3 = new System.Windows.Forms.CheckBox();
+            this.do4 = new System.Windows.Forms.CheckBox();
+            this.do5 = new System.Windows.Forms.CheckBox();
+            this.do6 = new System.Windows.Forms.CheckBox();
+            this.do7 = new System.Windows.Forms.CheckBox();
+            this.writeDIO = new System.Windows.Forms.Button();
             this.Movement = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.J1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.J2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,6 +112,7 @@
             this.Rz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.加速度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.速度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movementdata)).BeginInit();
             this.SuspendLayout();
@@ -116,7 +125,7 @@
             this.connect_bt.Name = "connect_bt";
             this.connect_bt.Size = new System.Drawing.Size(120, 40);
             this.connect_bt.TabIndex = 0;
-            this.connect_bt.Text = "Connect";
+            this.connect_bt.Text = "連線";
             this.connect_bt.UseVisualStyleBackColor = true;
             this.connect_bt.Click += new System.EventHandler(this.connect_bt_Click);
             // 
@@ -140,7 +149,7 @@
             this.disconnect_bt.Name = "disconnect_bt";
             this.disconnect_bt.Size = new System.Drawing.Size(120, 40);
             this.disconnect_bt.TabIndex = 2;
-            this.disconnect_bt.Text = "Disconnect";
+            this.disconnect_bt.Text = "中斷連線";
             this.disconnect_bt.UseVisualStyleBackColor = true;
             this.disconnect_bt.Click += new System.EventHandler(this.disconnect_bt_Click_1);
             // 
@@ -472,14 +481,14 @@
             // 
             // movementdata
             // 
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.movementdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.movementdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.movementdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.movementdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Movement,
@@ -496,7 +505,8 @@
             this.Ry,
             this.Rz,
             this.加速度,
-            this.速度});
+            this.速度,
+            this.DO});
             this.movementdata.Location = new System.Drawing.Point(20, 113);
             this.movementdata.Name = "movementdata";
             this.movementdata.RowTemplate.Height = 27;
@@ -511,7 +521,7 @@
             this.start_thread.Name = "start_thread";
             this.start_thread.Size = new System.Drawing.Size(120, 40);
             this.start_thread.TabIndex = 29;
-            this.start_thread.Text = "Start Thread";
+            this.start_thread.Text = "開始接收資料";
             this.start_thread.UseVisualStyleBackColor = true;
             this.start_thread.Click += new System.EventHandler(this.start_thread_Click);
             // 
@@ -523,7 +533,7 @@
             this.stop_thread.Name = "stop_thread";
             this.stop_thread.Size = new System.Drawing.Size(120, 40);
             this.stop_thread.TabIndex = 30;
-            this.stop_thread.Text = "Stop Thread";
+            this.stop_thread.Text = "停止接收資料";
             this.stop_thread.UseVisualStyleBackColor = true;
             this.stop_thread.Click += new System.EventHandler(this.stop_thread_Click);
             // 
@@ -551,7 +561,7 @@
             // 
             this.MoveJ.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MoveJ.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.MoveJ.Location = new System.Drawing.Point(481, 466);
+            this.MoveJ.Location = new System.Drawing.Point(478, 466);
             this.MoveJ.Name = "MoveJ";
             this.MoveJ.Size = new System.Drawing.Size(85, 35);
             this.MoveJ.TabIndex = 45;
@@ -563,7 +573,7 @@
             // 
             this.MoveL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MoveL.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.MoveL.Location = new System.Drawing.Point(481, 514);
+            this.MoveL.Location = new System.Drawing.Point(478, 515);
             this.MoveL.Name = "MoveL";
             this.MoveL.Size = new System.Drawing.Size(85, 35);
             this.MoveL.TabIndex = 46;
@@ -581,6 +591,7 @@
             this.startthread.TabIndex = 47;
             this.startthread.Text = "執行";
             this.startthread.UseVisualStyleBackColor = true;
+            this.startthread.Click += new System.EventHandler(this.startthread_Click);
             // 
             // stopthread
             // 
@@ -592,6 +603,7 @@
             this.stopthread.TabIndex = 48;
             this.stopthread.Text = "停止";
             this.stopthread.UseVisualStyleBackColor = true;
+            this.stopthread.Click += new System.EventHandler(this.stopthread_Click);
             // 
             // clear
             // 
@@ -648,6 +660,7 @@
             this.j1degree.Size = new System.Drawing.Size(75, 30);
             this.j1degree.TabIndex = 59;
             this.j1degree.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.j1degree.UseMnemonic = false;
             // 
             // j2degree
             // 
@@ -659,6 +672,7 @@
             this.j2degree.Size = new System.Drawing.Size(75, 30);
             this.j2degree.TabIndex = 61;
             this.j2degree.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.j2degree.UseMnemonic = false;
             // 
             // j3degree
             // 
@@ -670,6 +684,7 @@
             this.j3degree.Size = new System.Drawing.Size(75, 30);
             this.j3degree.TabIndex = 62;
             this.j3degree.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.j3degree.UseMnemonic = false;
             // 
             // j4degree
             // 
@@ -681,6 +696,7 @@
             this.j4degree.Size = new System.Drawing.Size(75, 30);
             this.j4degree.TabIndex = 63;
             this.j4degree.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.j4degree.UseMnemonic = false;
             // 
             // j5degree
             // 
@@ -692,6 +708,7 @@
             this.j5degree.Size = new System.Drawing.Size(75, 30);
             this.j5degree.TabIndex = 64;
             this.j5degree.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.j5degree.UseMnemonic = false;
             // 
             // j6degree
             // 
@@ -703,6 +720,7 @@
             this.j6degree.Size = new System.Drawing.Size(75, 30);
             this.j6degree.TabIndex = 65;
             this.j6degree.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.j6degree.UseMnemonic = false;
             // 
             // tcprz
             // 
@@ -714,6 +732,7 @@
             this.tcprz.Size = new System.Drawing.Size(75, 30);
             this.tcprz.TabIndex = 71;
             this.tcprz.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tcprz.UseMnemonic = false;
             // 
             // tcpry
             // 
@@ -725,6 +744,7 @@
             this.tcpry.Size = new System.Drawing.Size(75, 30);
             this.tcpry.TabIndex = 70;
             this.tcpry.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tcpry.UseMnemonic = false;
             // 
             // tcprx
             // 
@@ -736,6 +756,7 @@
             this.tcprx.Size = new System.Drawing.Size(75, 30);
             this.tcprx.TabIndex = 69;
             this.tcprx.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tcprx.UseMnemonic = false;
             // 
             // tcpz
             // 
@@ -747,6 +768,7 @@
             this.tcpz.Size = new System.Drawing.Size(75, 30);
             this.tcpz.TabIndex = 68;
             this.tcpz.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tcpz.UseMnemonic = false;
             // 
             // tcpy
             // 
@@ -758,6 +780,7 @@
             this.tcpy.Size = new System.Drawing.Size(75, 30);
             this.tcpy.TabIndex = 67;
             this.tcpy.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tcpy.UseMnemonic = false;
             // 
             // tcpx
             // 
@@ -769,6 +792,7 @@
             this.tcpx.Size = new System.Drawing.Size(75, 30);
             this.tcpx.TabIndex = 66;
             this.tcpx.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tcpx.UseMnemonic = false;
             // 
             // j6radian
             // 
@@ -780,6 +804,7 @@
             this.j6radian.Size = new System.Drawing.Size(75, 30);
             this.j6radian.TabIndex = 77;
             this.j6radian.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.j6radian.UseMnemonic = false;
             // 
             // j5radian
             // 
@@ -791,6 +816,7 @@
             this.j5radian.Size = new System.Drawing.Size(75, 30);
             this.j5radian.TabIndex = 76;
             this.j5radian.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.j5radian.UseMnemonic = false;
             // 
             // j4radian
             // 
@@ -802,6 +828,7 @@
             this.j4radian.Size = new System.Drawing.Size(75, 30);
             this.j4radian.TabIndex = 75;
             this.j4radian.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.j4radian.UseMnemonic = false;
             // 
             // j3radian
             // 
@@ -813,6 +840,7 @@
             this.j3radian.Size = new System.Drawing.Size(75, 30);
             this.j3radian.TabIndex = 74;
             this.j3radian.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.j3radian.UseMnemonic = false;
             // 
             // j2radian
             // 
@@ -824,6 +852,7 @@
             this.j2radian.Size = new System.Drawing.Size(75, 30);
             this.j2radian.TabIndex = 73;
             this.j2radian.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.j2radian.UseMnemonic = false;
             // 
             // j1radian
             // 
@@ -835,15 +864,122 @@
             this.j1radian.Size = new System.Drawing.Size(75, 30);
             this.j1radian.TabIndex = 78;
             this.j1radian.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.j1radian.UseMnemonic = false;
             // 
-            // label1
+            // do0
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(496, 581);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 15);
-            this.label1.TabIndex = 79;
-            this.label1.Text = "label1";
+            this.do0.AutoSize = true;
+            this.do0.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.do0.Location = new System.Drawing.Point(1047, 471);
+            this.do0.Name = "do0";
+            this.do0.Size = new System.Drawing.Size(69, 26);
+            this.do0.TabIndex = 80;
+            this.do0.Text = "DO0";
+            this.do0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.do0.UseVisualStyleBackColor = true;
+            this.do0.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // do1
+            // 
+            this.do1.AutoSize = true;
+            this.do1.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.do1.Location = new System.Drawing.Point(1047, 504);
+            this.do1.Name = "do1";
+            this.do1.Size = new System.Drawing.Size(69, 26);
+            this.do1.TabIndex = 81;
+            this.do1.Text = "DO1";
+            this.do1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.do1.UseVisualStyleBackColor = true;
+            this.do1.CheckedChanged += new System.EventHandler(this.do1_CheckedChanged);
+            // 
+            // do2
+            // 
+            this.do2.AutoSize = true;
+            this.do2.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.do2.Location = new System.Drawing.Point(1047, 537);
+            this.do2.Name = "do2";
+            this.do2.Size = new System.Drawing.Size(69, 26);
+            this.do2.TabIndex = 82;
+            this.do2.Text = "DO2";
+            this.do2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.do2.UseVisualStyleBackColor = true;
+            this.do2.CheckedChanged += new System.EventHandler(this.do2_CheckedChanged);
+            // 
+            // do3
+            // 
+            this.do3.AutoSize = true;
+            this.do3.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.do3.Location = new System.Drawing.Point(1047, 570);
+            this.do3.Name = "do3";
+            this.do3.Size = new System.Drawing.Size(69, 26);
+            this.do3.TabIndex = 83;
+            this.do3.Text = "DO3";
+            this.do3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.do3.UseVisualStyleBackColor = true;
+            this.do3.CheckedChanged += new System.EventHandler(this.do3_CheckedChanged);
+            // 
+            // do4
+            // 
+            this.do4.AutoSize = true;
+            this.do4.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.do4.Location = new System.Drawing.Point(1047, 603);
+            this.do4.Name = "do4";
+            this.do4.Size = new System.Drawing.Size(69, 26);
+            this.do4.TabIndex = 84;
+            this.do4.Text = "DO4";
+            this.do4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.do4.UseVisualStyleBackColor = true;
+            this.do4.CheckedChanged += new System.EventHandler(this.do4_CheckedChanged);
+            // 
+            // do5
+            // 
+            this.do5.AutoSize = true;
+            this.do5.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.do5.Location = new System.Drawing.Point(1047, 636);
+            this.do5.Name = "do5";
+            this.do5.Size = new System.Drawing.Size(69, 26);
+            this.do5.TabIndex = 85;
+            this.do5.Text = "DO5";
+            this.do5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.do5.UseVisualStyleBackColor = true;
+            this.do5.CheckedChanged += new System.EventHandler(this.do5_CheckedChanged);
+            // 
+            // do6
+            // 
+            this.do6.AutoSize = true;
+            this.do6.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.do6.Location = new System.Drawing.Point(1047, 669);
+            this.do6.Name = "do6";
+            this.do6.Size = new System.Drawing.Size(69, 26);
+            this.do6.TabIndex = 86;
+            this.do6.Text = "DO6";
+            this.do6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.do6.UseVisualStyleBackColor = true;
+            this.do6.CheckedChanged += new System.EventHandler(this.do6_CheckedChanged);
+            // 
+            // do7
+            // 
+            this.do7.AutoSize = true;
+            this.do7.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.do7.Location = new System.Drawing.Point(1047, 702);
+            this.do7.Name = "do7";
+            this.do7.Size = new System.Drawing.Size(69, 26);
+            this.do7.TabIndex = 87;
+            this.do7.Text = "DO7";
+            this.do7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.do7.UseVisualStyleBackColor = true;
+            this.do7.CheckedChanged += new System.EventHandler(this.do7_CheckedChanged);
+            // 
+            // writeDIO
+            // 
+            this.writeDIO.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.writeDIO.Location = new System.Drawing.Point(478, 564);
+            this.writeDIO.Name = "writeDIO";
+            this.writeDIO.Size = new System.Drawing.Size(85, 35);
+            this.writeDIO.TabIndex = 88;
+            this.writeDIO.Text = "DO紀錄";
+            this.writeDIO.UseVisualStyleBackColor = true;
+            this.writeDIO.Click += new System.EventHandler(this.writeDIO_Click);
             // 
             // Movement
             // 
@@ -940,20 +1076,37 @@
             // 
             this.加速度.HeaderText = "加速度";
             this.加速度.Name = "加速度";
+            this.加速度.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.加速度.Width = 80;
             // 
             // 速度
             // 
             this.速度.HeaderText = "速度";
             this.速度.Name = "速度";
+            this.速度.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.速度.Width = 80;
+            // 
+            // DO
+            // 
+            this.DO.HeaderText = "DIO";
+            this.DO.Name = "DO";
+            this.DO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DO.Width = 80;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1138, 756);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.writeDIO);
+            this.Controls.Add(this.do7);
+            this.Controls.Add(this.do6);
+            this.Controls.Add(this.do5);
+            this.Controls.Add(this.do4);
+            this.Controls.Add(this.do3);
+            this.Controls.Add(this.do2);
+            this.Controls.Add(this.do1);
+            this.Controls.Add(this.do0);
             this.Controls.Add(this.j1radian);
             this.Controls.Add(this.j6radian);
             this.Controls.Add(this.j5radian);
@@ -1084,7 +1237,15 @@
         private System.Windows.Forms.Label j3radian;
         private System.Windows.Forms.Label j2radian;
         private System.Windows.Forms.Label j1radian;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox do0;
+        private System.Windows.Forms.CheckBox do1;
+        private System.Windows.Forms.CheckBox do2;
+        private System.Windows.Forms.CheckBox do3;
+        private System.Windows.Forms.CheckBox do4;
+        private System.Windows.Forms.CheckBox do5;
+        private System.Windows.Forms.CheckBox do6;
+        private System.Windows.Forms.CheckBox do7;
+        private System.Windows.Forms.Button writeDIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Movement;
         private System.Windows.Forms.DataGridViewTextBoxColumn J1;
         private System.Windows.Forms.DataGridViewTextBoxColumn J2;
@@ -1100,6 +1261,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Rz;
         private System.Windows.Forms.DataGridViewTextBoxColumn 加速度;
         private System.Windows.Forms.DataGridViewTextBoxColumn 速度;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DO;
     }
 }
 

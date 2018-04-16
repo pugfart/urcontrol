@@ -501,8 +501,7 @@ namespace Control
 
                 }
             }
-
-            int kkk = 0;
+            
         }
 
         /*
