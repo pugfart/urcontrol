@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.connect_bt = new System.Windows.Forms.Button();
             this.IPaddress = new System.Windows.Forms.TextBox();
             this.disconnect_bt = new System.Windows.Forms.Button();
@@ -113,6 +113,7 @@
             this.加速度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.速度 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.powerdown = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movementdata)).BeginInit();
             this.SuspendLayout();
@@ -131,12 +132,12 @@
             // 
             // IPaddress
             // 
-            this.IPaddress.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.IPaddress.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.IPaddress.Location = new System.Drawing.Point(146, 20);
             this.IPaddress.Name = "IPaddress";
             this.IPaddress.Size = new System.Drawing.Size(120, 27);
             this.IPaddress.TabIndex = 1;
-            this.IPaddress.Text = "192.168.1.101";
+            this.IPaddress.Text = "在此輸入IP位址";
             this.IPaddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.IPaddress.MouseClick += new System.Windows.Forms.MouseEventHandler(this.IPaddress_MouseClick);
             this.IPaddress.TextChanged += new System.EventHandler(this.IPaddress_TextChanged);
@@ -468,6 +469,7 @@
             // Speed
             // 
             this.Speed.AutoSize = false;
+            this.Speed.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Speed.Location = new System.Drawing.Point(393, 482);
             this.Speed.Minimum = 1;
             this.Speed.Name = "Speed";
@@ -481,14 +483,14 @@
             // 
             // movementdata
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.movementdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.movementdata.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.movementdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.movementdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Movement,
@@ -869,6 +871,7 @@
             // do0
             // 
             this.do0.AutoSize = true;
+            this.do0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.do0.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.do0.Location = new System.Drawing.Point(1047, 471);
             this.do0.Name = "do0";
@@ -882,6 +885,7 @@
             // do1
             // 
             this.do1.AutoSize = true;
+            this.do1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.do1.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.do1.Location = new System.Drawing.Point(1047, 504);
             this.do1.Name = "do1";
@@ -895,6 +899,7 @@
             // do2
             // 
             this.do2.AutoSize = true;
+            this.do2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.do2.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.do2.Location = new System.Drawing.Point(1047, 537);
             this.do2.Name = "do2";
@@ -908,6 +913,7 @@
             // do3
             // 
             this.do3.AutoSize = true;
+            this.do3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.do3.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.do3.Location = new System.Drawing.Point(1047, 570);
             this.do3.Name = "do3";
@@ -921,6 +927,7 @@
             // do4
             // 
             this.do4.AutoSize = true;
+            this.do4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.do4.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.do4.Location = new System.Drawing.Point(1047, 603);
             this.do4.Name = "do4";
@@ -934,6 +941,7 @@
             // do5
             // 
             this.do5.AutoSize = true;
+            this.do5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.do5.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.do5.Location = new System.Drawing.Point(1047, 636);
             this.do5.Name = "do5";
@@ -947,6 +955,7 @@
             // do6
             // 
             this.do6.AutoSize = true;
+            this.do6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.do6.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.do6.Location = new System.Drawing.Point(1047, 669);
             this.do6.Name = "do6";
@@ -960,6 +969,7 @@
             // do7
             // 
             this.do7.AutoSize = true;
+            this.do7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.do7.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.do7.Location = new System.Drawing.Point(1047, 702);
             this.do7.Name = "do7";
@@ -972,6 +982,7 @@
             // 
             // writeDIO
             // 
+            this.writeDIO.Cursor = System.Windows.Forms.Cursors.Hand;
             this.writeDIO.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.writeDIO.Location = new System.Drawing.Point(478, 564);
             this.writeDIO.Name = "writeDIO";
@@ -1093,11 +1104,24 @@
             this.DO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.DO.Width = 80;
             // 
+            // powerdown
+            // 
+            this.powerdown.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.powerdown.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.powerdown.Location = new System.Drawing.Point(996, 12);
+            this.powerdown.Name = "powerdown";
+            this.powerdown.Size = new System.Drawing.Size(120, 40);
+            this.powerdown.TabIndex = 89;
+            this.powerdown.Text = "關機";
+            this.powerdown.UseVisualStyleBackColor = true;
+            this.powerdown.Click += new System.EventHandler(this.powerdown_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1138, 756);
+            this.Controls.Add(this.powerdown);
             this.Controls.Add(this.writeDIO);
             this.Controls.Add(this.do7);
             this.Controls.Add(this.do6);
@@ -1167,7 +1191,8 @@
             this.Controls.Add(this.IPaddress);
             this.Controls.Add(this.connect_bt);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "URcontroler";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.movementdata)).EndInit();
@@ -1262,6 +1287,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 加速度;
         private System.Windows.Forms.DataGridViewTextBoxColumn 速度;
         private System.Windows.Forms.DataGridViewTextBoxColumn DO;
+        private System.Windows.Forms.Button powerdown;
     }
 }
 

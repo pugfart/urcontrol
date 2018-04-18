@@ -310,17 +310,34 @@ namespace Control
             sendtask.Write(endline, 0, endline.Length);
         }
 
-        public void do_work(FileInfo f)//讀檔執行
+        public void do_work(FileInfo f)//讀檔(.txt)執行
         {
             StreamReader read = f.OpenText();//讀檔執行
             string readline;
-            sendtask.Write(startline, 0, startline.Length);
+            try
+            {
+                sendtask.Write(startline, 0, startline.Length);
+            }
+            catch
+            {
+                return;
+            }
 
             while ((readline = read.ReadLine()) != null)//送各行動作
             {
                 task = asc.GetBytes(readline + "\n");
                 sendtask.Write(task, 0, task.Length);
             }
+
+            sendtask.Write(endline, 0, endline.Length);
+        }
+
+        public void powerdown()
+        {
+            sendtask.Write(startline, 0, startline.Length);
+
+            task = asc.GetBytes("powerdown()\n");
+            sendtask.Write(task, 0, task.Length);
 
             sendtask.Write(endline, 0, endline.Length);
         }

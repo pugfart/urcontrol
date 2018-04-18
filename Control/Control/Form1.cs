@@ -241,7 +241,14 @@ namespace Control
         private void start_thread_Click(object sender, EventArgs e)
         {
             thread = true;
-            info.Start();//start thread
+            try
+            { 
+                info.Start();//start thread
+            }
+            catch
+            {
+                return;
+            }
         }
 
         private void IPaddress_TextChanged(object sender, EventArgs e)
@@ -371,8 +378,9 @@ namespace Control
 
         private void deleterow_Click(object sender, EventArgs e)
         {
-            for (int i = this.movementdata.SelectedRows.Count; i > 0; i--)       //刪除行         
-                movementdata.Rows.RemoveAt(movementdata.SelectedRows[i - 1].Index);            
+            if(movementdata.RowCount>1)
+                for (int i = this.movementdata.SelectedRows.Count; i > 0; i--)       //刪除行         
+                    movementdata.Rows.RemoveAt(movementdata.SelectedRows[i - 1].Index);            
         }
 
         private void clear_Click(object sender, EventArgs e)
@@ -390,9 +398,17 @@ namespace Control
 
         private void startthread_Click(object sender, EventArgs e)
         {
-            StreamWriter write = f.CreateText();
-            int i;
-            for (i = 0; i <= movementdata.RowCount - 1; i++)
+            StreamWriter write;
+            try
+            {
+                write = f.CreateText();
+            }
+            catch
+            {
+                return;
+            }
+            
+            for (int i = 0; i <= movementdata.RowCount - 1; i++)
             {
                 char m = 'a';
                 string move;
@@ -406,7 +422,9 @@ namespace Control
                     j3 = Convert.ToDouble(movementdata.Rows[i].Cells[3].Value),
                     j4 = Convert.ToDouble(movementdata.Rows[i].Cells[4].Value),
                     j5 = Convert.ToDouble(movementdata.Rows[i].Cells[5].Value),
-                    j6 = Convert.ToDouble(movementdata.Rows[i].Cells[6].Value);
+                    j6 = Convert.ToDouble(movementdata.Rows[i].Cells[6].Value),
+                    aa = Convert.ToDouble(movementdata.Rows[i].Cells[13].Value),
+                    vv = Convert.ToDouble(movementdata.Rows[i].Cells[14].Value);
                 int _do0=0,_do1=0,_do2=0,_do3=0,_do4=0,_do5=0,_do6=0,_do7=0,do_all=0;
                 
                 if(movementdata.Rows[i].Cells[15].Value!=null)//如果不是DO動作就不執行
@@ -461,8 +479,8 @@ namespace Control
                             j4.ToString() + "," +
                             j5.ToString() + "," +
                             j6.ToString() + "],a=" +
-                            a.ToString() + ",v=" +
-                            v.ToString() + ")\r\n");
+                            aa.ToString() + ",v=" +
+                            vv.ToString() + ")\r\n");
                         break;
                     case 'l'://movel寫入
                         write.Write("movel([" + j1.ToString() + "," +
@@ -471,8 +489,8 @@ namespace Control
                             j4.ToString() + "," +
                             j5.ToString() + "," +
                             j6.ToString() + "],a=" +
-                            (2*a).ToString() + ",v=" +
-                            (v/2).ToString() + ")\r\n");
+                            (2*aa).ToString() + ",v=" +
+                            (vv/2).ToString() + ")\r\n");
                         break;
                     case 'd'://每次都會寫入每個DO的指令                        
                         write.Write("set_standard_digital_out(0,"+Convert.ToBoolean(_do0).ToString()+")\r\n"+
@@ -576,6 +594,27 @@ namespace Control
             movementdata.Rows.Add(new object[] { "DO","0","0","0","0","0","0","0","0","0","0","0","0","0","0",dioinfo.ToString()});//資料填入表單                
         }
 
+        private void powerdown_Click(object sender, EventArgs e)
+        {
+            DialogResult result;
+            if (sendtask.conn.Connected)
+            {
+                result = MessageBox.Show("確定要關機?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+
+                if (result == DialogResult.OK)
+                    sendtask.powerdown();
+            }
+
+            else
+                MessageBox.Show("尚未連線\r請先連線","",MessageBoxButtons.OK,MessageBoxIcon.Error);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            thread = false;
+            info.Abort();
+        }
+
         private void IPaddress_MouseClick(object sender, MouseEventArgs e)
         {
             IPaddress.Text = "";//點IP格會自動清除
@@ -583,7 +622,7 @@ namespace Control
 
         private void Speed_Scroll(object sender, EventArgs e)
         {
-            showspeedpercent.Text = Speed.Value.ToString();
+            showspeedpercent.Text = Speed.Value.ToString();//顯示在條上面
 
             a = System.Convert.ToDouble(Speed.Value) * 0.033 + 0.27;//加速度調整公式
             v = System.Convert.ToDouble(Speed.Value) * 0.011 + 0.09;//最大速調整控制
