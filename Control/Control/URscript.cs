@@ -10,13 +10,13 @@ namespace Control
 {
     class URscript
     {    
-        ASCIIEncoding asc = new ASCIIEncoding();
+        ASCIIEncoding asc = new ASCIIEncoding();//將文字轉乘Bytes用
         private static byte[] startline;
         private static byte[] endline;
         private byte[] task;
         
-        public TcpClient conn = new TcpClient();
-        NetworkStream sendtask;
+        public TcpClient conn = new TcpClient();//TCP連線
+        NetworkStream sendtask;//連線後傳資料
 
 
         public void connect(string urip)
@@ -28,20 +28,11 @@ namespace Control
         }
 
         public void movejoint(int jointnum,double a,double v,double j1,double j2,double j3,double j4,double j5,double j6)//movej
-        {
-            try
-            {
-                sendtask.Write(startline, 0, startline.Length);
-            }
-            catch
-            {
-                return;
-            }
-            
+        {            
             switch (jointnum)//選擇軸 1~6  選擇正反 +-
             {
                 case 1:
-                    task =asc.GetBytes( "movej([6.2831852,"
+                    task =asc.GetBytes( "movej([6.2831852,"//徑度為單位 將目標設在該軸最大值
                        + j2.ToString() + ","
                        + j3.ToString() + "," 
                        + j4.ToString() + "," 
@@ -142,6 +133,15 @@ namespace Control
                     break;
             }
 
+            try
+            {
+                sendtask.Write(startline, 0, startline.Length);
+            }
+            catch
+            {
+                return;
+            }
+
             sendtask.Write(task, 0, task.Length);
             sendtask.Write(endline, 0, endline.Length);
         }
@@ -160,25 +160,16 @@ namespace Control
         }
 
         public void movel(int direction, double a, double v, double X_axis, double Y_axis, double Z_axis, double Rx, double Ry, double Rz)//movel
-        {
-            try
-            {
-                sendtask.Write(startline, 0, startline.Length);
-            }
-            catch
-            {
-                return;
-            }
-
+        {            
             switch(direction)//1->x 2->y 3->z 4->rx 5->ry 6->rz   方向選擇+-
             {
                 case 1:
-                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000 + 0.1).ToString() 
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000 + 0.1).ToString() //座標用m和徑度為單位 目標只多0.1m不然容易崩潰
                     + "," + (Y_axis / 1000).ToString()
                     + "," + (Z_axis / 1000).ToString()
                     + "," + Rx.ToString() + ","
                     + Ry.ToString() + ","
-                    + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
+                    + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");//速度與加速度分別為2倍和1/2倍方便控制
                     break;
                 case 2:
                     task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()
@@ -197,7 +188,7 @@ namespace Control
                     + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
                     break;
                 case 4:
-                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()//徑度也只多1方向較穩定 但有時候會有例外需要重新呼叫
                     + "," + (Y_axis / 1000).ToString()
                     + "," + (Z_axis / 1000).ToString()
                     + "," + (Rx+1).ToString() + ","
@@ -272,6 +263,15 @@ namespace Control
                     break;
             }
 
+            try
+            {
+                sendtask.Write(startline, 0, startline.Length);
+            }
+            catch
+            {
+                return;
+            }
+
             sendtask.Write(task, 0, task.Length);
             sendtask.Write(endline, 0, endline.Length);
         }
@@ -334,7 +334,14 @@ namespace Control
 
         public void powerdown()
         {
-            sendtask.Write(startline, 0, startline.Length);
+            try
+            {
+                sendtask.Write(startline, 0, startline.Length);
+            }
+            catch
+            {
+                return;
+            }
 
             task = asc.GetBytes("powerdown()\n");
             sendtask.Write(task, 0, task.Length);

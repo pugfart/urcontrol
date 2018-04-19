@@ -19,16 +19,16 @@ namespace Control
         URscript sendtask = new URscript();
 
         bool thread;
-        double[] jointpositiondegree, jointpositionradian, tcpposition;
+        double[] jointpositiondegree, jointpositionradian, tcpposition;//手臂資料
         double a, v;//拉條控制加速度和速度
-        Thread info;
-        FileInfo f = new FileInfo("C:\\task_script.txt");//一串工作順序
+        Thread info;//執行緒 用來取得即時資料
+        FileInfo f = new FileInfo("C:\\task_script.txt");//一串工作順序紀錄
 
         public Form1()
         {
             InitializeComponent();
             a = 0.3;//加速度初值 最小值
-            v = 0.1;//最大速初值 最小值
+            v = 0.1;//速度初值 最小值
             thread = false;
             info = new Thread(new ThreadStart(showinfo));//宣告執行續
             info.IsBackground = true;//背景執行     
@@ -378,8 +378,8 @@ namespace Control
 
         private void deleterow_Click(object sender, EventArgs e)
         {
-            if(movementdata.RowCount>1)
-                for (int i = this.movementdata.SelectedRows.Count; i > 0; i--)       //刪除行         
+            if(movementdata.RowCount>1)//刪除行 但至少1行
+                for (int i = this.movementdata.SelectedRows.Count; i > 0; i--)                
                     movementdata.Rows.RemoveAt(movementdata.SelectedRows[i - 1].Index);            
         }
 
@@ -413,7 +413,7 @@ namespace Control
                 char m = 'a';
                 string move;
                 move = movementdata.Rows[i].Cells[0].FormattedValue.ToString();
-                if (move == "movej") m = 'j';
+                if (move == "movej") m = 'j';//動作代號 預設為'a'走default
                 else if (move == "movel") m = 'l';
                 else if (move == "DO") m = 'd';
 
@@ -423,8 +423,8 @@ namespace Control
                     j4 = Convert.ToDouble(movementdata.Rows[i].Cells[4].Value),
                     j5 = Convert.ToDouble(movementdata.Rows[i].Cells[5].Value),
                     j6 = Convert.ToDouble(movementdata.Rows[i].Cells[6].Value),
-                    aa = Convert.ToDouble(movementdata.Rows[i].Cells[13].Value),
-                    vv = Convert.ToDouble(movementdata.Rows[i].Cells[14].Value);
+                    aa = Convert.ToDouble(movementdata.Rows[i].Cells[13].Value),//紀錄上的加速度
+                    vv = Convert.ToDouble(movementdata.Rows[i].Cells[14].Value);//紀錄上的速度
                 int _do0=0,_do1=0,_do2=0,_do3=0,_do4=0,_do5=0,_do6=0,_do7=0,do_all=0;
                 
                 if(movementdata.Rows[i].Cells[15].Value!=null)//如果不是DO動作就不執行
@@ -508,7 +508,7 @@ namespace Control
             }
             write.Close();//寫入結束
 
-            sendtask.do_work(f);
+            sendtask.do_work(f);//呼叫讀取.txt中的工作並執行
         }
 
         private void stopthread_Click(object sender, EventArgs e)
@@ -574,7 +574,7 @@ namespace Control
 
         private void writeDIO_Click(object sender, EventArgs e)
         {
-            int dioinfo=0;//紀錄目前DO狀況 以數字方式記錄 並組合成1個數字寫入
+            int dioinfo=0;//紀錄目前DO狀況 以數字方式記錄 並組合成1個數字寫入 1表on 0表off 例:10000010為DO0與DO6 on
             if (do0.Checked) dioinfo = 1;
             if (do1.Checked) dioinfo = dioinfo * 10 + 1;
             else dioinfo *= 10;
@@ -597,7 +597,7 @@ namespace Control
         private void powerdown_Click(object sender, EventArgs e)
         {
             DialogResult result;
-            if (sendtask.conn.Connected)
+            if (sendtask.conn.Connected)//有連線才能執行關機
             {
                 result = MessageBox.Show("確定要關機?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
 
@@ -611,7 +611,7 @@ namespace Control
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            thread = false;
+            thread = false;//關視窗時會先停止執行緒 才不會崩潰
             info.Abort();
         }
 
