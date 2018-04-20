@@ -55,12 +55,7 @@ namespace Control
             else
                 MessageBox.Show("未連線");
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
+        
         private void J1plus_MouseUp(object sender, MouseEventArgs e)
         {
             sendtask.stopj(a);

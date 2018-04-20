@@ -369,7 +369,7 @@ namespace Control
         /// 斷線Robot
         /// </summary>
         /// <returns>斷線是否成功,1:成功,-1:失敗</returns>
-        public int DisconnectRobot()
+        public int DisconnectRobot() //中斷連線
         {
             int nRet = -1;
             try
@@ -531,7 +531,7 @@ namespace Control
         /// 從Server端接收資料
         /// </summary>
         /// <param name="byteRecv">資料緩衝區</param>
-        public int Receive(byte[] byteRecv)
+        public int Receive(byte[] byteRecv) //程式沒用到此函式
         {
             int nRecvNum = 0;
             //判斷socket 是否還是連線狀態

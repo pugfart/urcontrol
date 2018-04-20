@@ -332,7 +332,7 @@ namespace Control
             sendtask.Write(endline, 0, endline.Length);
         }
 
-        public void powerdown()
+        public void powerdown() //關機
         {
             try
             {
