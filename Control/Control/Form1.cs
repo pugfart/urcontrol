@@ -601,7 +601,7 @@ namespace Control
             }
 
             else
-                MessageBox.Show("尚未連線\r請先連線","",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("沒有連到手臂\r請先連線","",MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
