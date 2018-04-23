@@ -10,12 +10,12 @@ namespace Control
 {
     class URscript
     {    
-        ASCIIEncoding asc = new ASCIIEncoding();//將文字轉乘Bytes用
-        private static byte[] startline;
+        private ASCIIEncoding asc = new ASCIIEncoding();//將文字轉乘Bytes用
+        private static byte[] startline;//用來儲存開頭 結尾 中間的指令
         private static byte[] endline;
         private byte[] task;
         
-        public TcpClient conn = new TcpClient();//TCP連線
+        public TcpClient conn = new TcpClient();//TCP 連線 斷線 檢查狀態
         NetworkStream sendtask;//連線後傳資料
 
 
@@ -25,6 +25,11 @@ namespace Control
             sendtask = conn.GetStream();//傳資料用
             startline = asc.GetBytes("def myProg(): \n");//定義開頭
             endline = asc.GetBytes("end \n");//定義結尾
+        }
+
+        public void disconnect()
+        {
+            conn.Close();
         }
 
         public void movejoint(int jointnum,double a,double v,double j1,double j2,double j3,double j4,double j5,double j6)//movej
@@ -188,7 +193,7 @@ namespace Control
                     + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");
                     break;
                 case 4:
-                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()//徑度也只多1方向較穩定 但有時候會有例外需要重新呼叫
+                    task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()//徑度也最多1方向較穩定 但有時候會有例外需要重新呼叫
                     + "," + (Y_axis / 1000).ToString()
                     + "," + (Z_axis / 1000).ToString()
                     + "," + (Rx+1).ToString() + ","
@@ -293,7 +298,7 @@ namespace Control
             sendtask.Write(endline, 0, endline.Length);
         }
 
-        public void digital_output(int point,bool act)//dio控制
+        public void digital_output(int point,bool act)//do控制
         {
             try
             {

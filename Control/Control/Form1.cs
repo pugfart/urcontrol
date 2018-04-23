@@ -29,9 +29,7 @@ namespace Control
             InitializeComponent();
             a = 0.3;//加速度初值 最小值
             v = 0.1;//速度初值 最小值
-            thread = false;
-            info = new Thread(new ThreadStart(showinfo));//宣告執行續
-            info.IsBackground = true;//背景執行     
+            thread = false;//設初值 代表目前無接收資料 可開新的執行續接收資料                 
         }
 
         private void stop_thread_Click(object sender, EventArgs e)
@@ -234,8 +232,15 @@ namespace Control
         }
 
         private void start_thread_Click(object sender, EventArgs e)
-        {
+        {            
+            if (!thread)
+            {
+                info = new Thread(new ThreadStart(showinfo));//宣告執行續
+                info.IsBackground = true;//背景執行
+            }
+
             thread = true;
+
             try
             { 
                 info.Start();//start thread
@@ -607,7 +612,11 @@ namespace Control
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             thread = false;//關視窗時會先停止執行緒 才不會崩潰
-            info.Abort();
+            try
+            {
+                info.Abort();//如沒有開就執行 會崩潰
+            }
+            catch { }
         }
 
         private void IPaddress_MouseClick(object sender, MouseEventArgs e)

@@ -1191,7 +1191,7 @@
             this.Controls.Add(this.IPaddress);
             this.Controls.Add(this.connect_bt);
             this.Name = "Form1";
-            this.Text = "URcontroler";
+            this.Text = "URcontroller";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).EndInit();
