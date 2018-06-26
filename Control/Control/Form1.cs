@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * 主控制介面
+ * 
+ * 作者 Andrew Hua, Grace Huang
+ * 
+ * Date 2018.06.26
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +22,15 @@ namespace Control
 {
     public partial class Form1 : Form
     {
+        /* 參數說明
+         * getinfo 接收並解讀手臂資料
+         * sendtask 傳送指令
+         * thread 刷新手臂資料的執行緒是否執行
+         * jointpositiondegree, jointpositionradian, tcpposition 手臂位置資料陣列
+         * a 加速度 軸控制單位rad/s^2 座標控制單位m/s^2
+         * v 速度 軸控制單位rad/s 座標控制單位m/s
+         * f 表執行連續動作時 紀錄動作的檔案
+         */
         URSocketClient getinfo = new URSocketClient();
         URscript sendtask = new URscript();
 
@@ -22,20 +38,18 @@ namespace Control
         double[] jointpositiondegree, jointpositionradian, tcpposition;//手臂資料
         double a, v;//拉條控制加速度和速度
         Thread info;//執行緒 用來取得即時資料
-        FileInfo f = new FileInfo("C:\\task_script.txt");//一串工作順序紀錄
+        FileInfo f = new FileInfo(Application.StartupPath+"\\task_script.txt");//一串工作順序紀錄
 
         public Form1()
         {
             InitializeComponent();
-            a = 0.3;//加速度初值 最小值
-            v = 0.1;//速度初值 最小值
-            thread = false;//設初值 代表目前無接收資料 可開新的執行續接收資料                 
+                            
         }
 
         private void stop_thread_Click(object sender, EventArgs e)
         {
             thread = false;
-            info.Abort();//stop thread
+            info.Abort();//stop thread ***FIX ME
         }
 
         private void connect_bt_Click(object sender, EventArgs e)
@@ -59,12 +73,7 @@ namespace Control
             sendtask.stopj(a);
         }
 
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-            jointpositiondegree = new double[6];
-            jointpositionradian = new double[6];
-            tcpposition = new double[6];
-        }
+        
 
         private void disconnect_bt_Click_1(object sender, EventArgs e)
         {
@@ -251,11 +260,6 @@ namespace Control
             }
         }
 
-        private void IPaddress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Xplus_MouseDown(object sender, MouseEventArgs e)
         {
             sendtask.movel(1, a, v, tcpposition[0], tcpposition[1], tcpposition[2], tcpposition[3], tcpposition[4], tcpposition[5]);
@@ -429,7 +433,7 @@ namespace Control
                 
                 if(movementdata.Rows[i].Cells[15].Value!=null)//如果不是DO動作就不執行
                 do_all = Convert.ToInt32(movementdata.Rows[i].Cells[15].Value);
-                if (do_all != 0)//解讀各DO狀態
+                if (do_all != 0)//解讀各DO狀態 各位數代表一個do狀態
                 {
                     _do7 = do_all % 10;
                     do_all /= 10;
@@ -619,6 +623,16 @@ namespace Control
             catch { }
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            jointpositiondegree = new double[6];
+            jointpositionradian = new double[6];
+            tcpposition = new double[6];
+            a = 0.3;//加速度初值 最小值
+            v = 0.1;//速度初值 最小值
+            thread = false;//設初值 代表目前無接收資料 可開新的執行續接收資料 
+        }
+
         private void IPaddress_MouseClick(object sender, MouseEventArgs e)
         {
             IPaddress.Text = "";//點IP格會自動清除
@@ -632,6 +646,9 @@ namespace Control
             v = System.Convert.ToDouble(Speed.Value) * 0.011 + 0.09;//最大速調整控制
         }
         
+        /// <summary>
+        /// 在主畫面顯示資料 供新開執行緒用
+        /// </summary>
         public void showinfo()        
         {
                while (thread)

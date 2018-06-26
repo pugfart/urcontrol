@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * URscript類別用於傳送指令給手臂 需搭配接收資料
+ * 
+ * 作者 Andrew Hua, Grace Huang
+ * 
+ * Date 2018.06.26
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +17,14 @@ namespace Control
 {
     class URscript
     {    
+        /*參數說明
+         * asc 將文字轉bytes
+         * startline 存開頭指令
+         * endline 存結尾指令
+         * task 存動作指令
+         * conn 連線相關
+         * sendtask 傳輸資料
+         */
         private ASCIIEncoding asc = new ASCIIEncoding();//將文字轉乘Bytes用
         private static byte[] startline;//用來儲存開頭 結尾 中間的指令
         private static byte[] endline;
@@ -18,20 +33,38 @@ namespace Control
         public TcpClient conn = new TcpClient();//TCP 連線 斷線 檢查狀態
         NetworkStream sendtask;//連線後傳資料
 
-
+        /// <summary>
+        /// 連線
+        /// </summary>
+        /// <param name="urip"></param>
         public void connect(string urip)
         {
-            conn.Connect(urip, 30002);//連線
-            sendtask = conn.GetStream();//傳資料用
+            conn.Connect(urip, 30002);//連線 port 30002固定 10hz適合用來傳動作指令
+            sendtask = conn.GetStream();//連線後設定傳輸
             startline = asc.GetBytes("def myProg(): \n");//定義開頭
             endline = asc.GetBytes("end \n");//定義結尾
         }
 
+        /// <summary>
+        /// 離線
+        /// </summary>
         public void disconnect()
         {
             conn.Close();
         }
 
+        /// <summary>
+        /// 單軸動作控制
+        /// </summary>
+        /// <param name="jointnum"></param>
+        /// <param name="a"></param>
+        /// <param name="v"></param>
+        /// <param name="j1"></param>
+        /// <param name="j2"></param>
+        /// <param name="j3"></param>
+        /// <param name="j4"></param>
+        /// <param name="j5"></param>
+        /// <param name="j6"></param>
         public void movejoint(int jointnum,double a,double v,double j1,double j2,double j3,double j4,double j5,double j6)//movej
         {            
             switch (jointnum)//選擇軸 1~6  選擇正反 +-
@@ -140,7 +173,7 @@ namespace Control
 
             try
             {
-                sendtask.Write(startline, 0, startline.Length);
+                sendtask.Write(startline, 0, startline.Length);//如沒有連線 傳資料會有例外
             }
             catch
             {
@@ -151,6 +184,10 @@ namespace Control
             sendtask.Write(endline, 0, endline.Length);
         }
 
+        /// <summary>
+        /// 軸煞車
+        /// </summary>
+        /// <param name="a"></param>
         public void stopj(double a)
         {
             try
@@ -164,18 +201,30 @@ namespace Control
             sendtask.Write(endline, 0, endline.Length);
         }
 
+        /// <summary>
+        /// 座標移動
+        /// </summary>
+        /// <param name="direction"></param>
+        /// <param name="a"></param>
+        /// <param name="v"></param>
+        /// <param name="X_axis"></param>
+        /// <param name="Y_axis"></param>
+        /// <param name="Z_axis"></param>
+        /// <param name="Rx"></param>
+        /// <param name="Ry"></param>
+        /// <param name="Rz"></param>
         public void movel(int direction, double a, double v, double X_axis, double Y_axis, double Z_axis, double Rx, double Ry, double Rz)//movel
         {            
             switch(direction)//1->x 2->y 3->z 4->rx 5->ry 6->rz   方向選擇+-
             {
                 case 1:
                     task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000 + 0.1).ToString() //座標用m和徑度為單位 目標只多0.1m不然容易崩潰
-                    + "," + (Y_axis / 1000).ToString()
+                    + "," + (Y_axis / 1000).ToString()                                                //超出動作範圍 手臂就不會動  
                     + "," + (Z_axis / 1000).ToString()
                     + "," + Rx.ToString() + ","
                     + Ry.ToString() + ","
                     + Rz.ToString() + "]),a=" + (a * 2).ToString() + ",v=" + (v / 2).ToString() + ")\n");//速度與加速度分別為2倍和1/2倍方便控制
-                    break;
+                    break;                                                                               //movel單位為公尺   
                 case 2:
                     task = asc.GetBytes("movel(get_inverse_kin(p[" + (X_axis / 1000).ToString()
                     + "," + (Y_axis / 1000+0.1).ToString()
@@ -281,6 +330,10 @@ namespace Control
             sendtask.Write(endline, 0, endline.Length);
         }
 
+        /// <summary>
+        /// 線性煞車
+        /// </summary>
+        /// <param name="a"></param>
         public void stopl(double a)
         {
             try
@@ -298,6 +351,11 @@ namespace Control
             sendtask.Write(endline, 0, endline.Length);
         }
 
+        /// <summary>
+        /// digital output設定
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="act"></param>
         public void digital_output(int point,bool act)//do控制
         {
             try
@@ -315,6 +373,10 @@ namespace Control
             sendtask.Write(endline, 0, endline.Length);
         }
 
+        /// <summary>
+        /// 讀txt檔執行連續動作
+        /// </summary>
+        /// <param name="f"></param>
         public void do_work(FileInfo f)//讀檔(.txt)執行
         {
             StreamReader read = f.OpenText();//讀檔執行
@@ -337,6 +399,9 @@ namespace Control
             sendtask.Write(endline, 0, endline.Length);
         }
 
+        /// <summary>
+        /// 手臂關機
+        /// </summary>
         public void powerdown() //關機
         {
             try

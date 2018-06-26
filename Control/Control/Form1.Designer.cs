@@ -140,7 +140,6 @@
             this.IPaddress.Text = "在此輸入IP位址";
             this.IPaddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.IPaddress.MouseClick += new System.Windows.Forms.MouseEventHandler(this.IPaddress_MouseClick);
-            this.IPaddress.TextChanged += new System.EventHandler(this.IPaddress_TextChanged);
             // 
             // disconnect_bt
             // 
@@ -1193,7 +1192,7 @@
             this.Name = "Form1";
             this.Text = "URcontroller";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load_1);
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.movementdata)).EndInit();
             this.ResumeLayout(false);

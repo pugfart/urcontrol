@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * URSocketClient類別用於接收手臂資料
+ * 
+ * 作者 阿賢
+ * 
+ * Date ?
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
